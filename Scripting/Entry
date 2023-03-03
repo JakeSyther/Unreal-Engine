@@ -1,0 +1,40 @@
+Unreal Engine provides a variety of scripting options for developers, including C++, Blueprint Visual Scripting, and Python.
+
+C++: C++ is the primary programming language used for developing games in Unreal Engine. 
+It offers high performance and access to low-level systems, making it ideal for building complex game mechanics and systems. 
+Developers can write C++ code directly in the Unreal Editor using the integrated development environment (IDE) or an external IDE, such as Visual Studio.
+
+Blueprint Visual Scripting: Blueprint Visual Scripting is a powerful visual scripting system that allows developers to create complex gameplay mechanics and 
+systems without writing any code. It uses a node-based interface to create logic and connect events and actions.
+Blueprint scripts can be easily created and modified, making them a popular choice for rapid prototyping and iterating on game mechanics.
+
+Python: Unreal Engine also supports Python scripting through the use of the Unreal Python API. 
+Python can be used to automate tasks, extend the Unreal Editor, and create custom tools and plugins.
+Python scripts can be executed within the Unreal Editor or as standalone scripts.
+
+In addition to these scripting options, Unreal Engine also provides a variety of tools and features to help developers debug and optimize their scripts,
+including debugging tools, profiling tools, and memory and performance analysis tools. 
+The Unreal Engine documentation provides extensive resources and tutorials on how to use these scripting options and tools.
+
+Here are some of the main things so we can do with C++ in Unreal Engine:
+
+Create game logic and mechanics: C++ is used to create the underlying game logic and mechanics that power the game. 
+This includes creating gameplay systems, AI behavior, physics simulations, and other critical game systems.
+
+Optimize performance: C++ allows developers to write highly optimized code that can run faster and more efficiently than other programming languages.
+This is especially important in game development, where performance is critical for delivering a smooth and responsive experience.
+
+Create custom tools and plugins: C++ can be used to create custom tools and plugins that extend the functionality of the Unreal Editor. 
+This can include tools for generating content, automating tasks, and improving the development workflow.
+
+Extend the Unreal Engine: C++ can be used to extend the Unreal Engine itself, adding new features and functionality that are not available out of the box.
+This can include creating new rendering techniques, implementing new physics simulations, and more.
+
+While C++ is a powerful language, it can also be more challenging to learn than other scripting languages like Blueprint Visual Scripting.
+However, with the help of the extensive documentation and resources available for Unreal Engine, developers can quickly become proficient in using
+C++ for game development.
+
+Unreal Engine Documentation : https://docs.unrealengine.com/5.1/en-US/
+
+
+
