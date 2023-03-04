@@ -27,7 +27,6 @@ It has a public member variable called MyFloat, which is decorated with the UPRO
 This property is editable in the editor and can be accessed and modified in Blueprint.
 
 For more information, you can check the official Unreal Engine documentation on UPROPERTY:
-https://docs.unrealengine.com/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Reference/Properties/Specifiers/PropertySpecifiers/index.html
-
+https://docs.unrealengine.com/5.1/en-US/unreal-engine-uproperty-specifiers/
 
 
