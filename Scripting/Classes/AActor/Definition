@@ -1,0 +1,78 @@
+The AActor class is the base class for all actors in Unreal Engine, which are the primary objects used to represent objects and characters in a level.
+
+Here is an overview of some of the key properties and functions of the AActor class:
+
+Properties:
+
+FVector Location    : The current location of the actor in the game world.
+FRotator Rotation   : The current rotation of the actor in the game world.
+FVector Scale       : The current scale of the actor in the game world.
+UWorld* World       : A pointer to the world that this actor belongs to.
+bool bHidden        : Whether or not the actor is currently hidden.
+bool bEditable      : Whether or not the actor is currently editable in the editor.
+bool bCollideActors : Whether or not the actor should collide with other actors in the game world.
+bool bCollideWorld  : Whether or not the actor should collide with the world geometry in the game world.
+TArray<UActorComponent*> Components: An array of all the components attached to the actor.
+Transform           : Contains the actor's location, rotation, and scale in the world.
+Components          : A list of components attached to the actor, such as meshes, collision volumes, and scripts.
+Tags                : A set of string tags that can be used to group or identify actors in various ways.
+Actor Lifecycle     : A series of flags that indicate whether the actor is being edited, simulated, or destroyed.
+Replication         : Settings for replicating the actor across a network.
+
+Functions:
+
+virtual void BeginPlay(): Called when the actor is first spawned in the game world.
+virtual void Tick(float DeltaTime): Called every frame to update the actor's state.
+void SetActorLocation(const FVector& NewLocation, bool bSweep = false): Sets the actor's location in the game world.
+void SetActorRotation(const FRotator& NewRotation, bool bSweep = false): Sets the actor's rotation in the game world.
+void SetActorScale3D(const FVector& NewScale): Sets the actor's scale in the game world.
+UActorComponent* GetComponentByClass(TSubclassOf<UActorComponent> ComponentClass): Gets the first component attached to the actor of the specified class.
+TArray<UActorComponent*> GetComponentsByClass(TSubclassOf<UActorComponent> ComponentClass): Gets all components attached to the actor of the specified class.
+FVector GetActorLocation(): Gets the actor's current location in the game world.
+FRotator GetActorRotation(): Gets the actor's current rotation in the game world.
+FVector GetActorScale3D(): Gets the actor's current scale in the game world.
+void AddActorLocalOffset(const FVector& DeltaLocation, bool bSweep = false): Moves the actor by the specified offset in the actor's local space.
+void AddActorLocalRotation(const FRotator& DeltaRotation, bool bSweep = false): Rotates the actor by the specified rotation in the actor's local space.
+void AddActorWorldOffset(const FVector& DeltaLocation, bool bSweep = false): Moves the actor by the specified offset in the game world.
+void AddActorWorldRotation(const FRotator& DeltaRotation, bool bSweep = false): Rotates the actor by the specified rotation in the game world.
+OnConstruction(): Called when the actor is being constructed.
+BeginPlay(): Called when the game starts or when the actor is spawned.
+Tick(): Called every frame.
+Destroy(): Destroys the actor and removes it from the game world.
+SetActorLocation(): Sets the location of the actor in world space.
+SetActorRotation(): Sets the rotation of the actor in world space.
+AddActorLocalOffset(): Adds an offset to the actor's position relative to its current position.
+AddActorLocalRotation(): Adds a rotation to the actor's rotation relative to its current rotation.
+GetActorLocation(): Returns the location of the actor in world space.
+GetActorRotation(): Returns the rotation of the actor in world space.
+GetActorForwardVector(): Returns the forward vector of the actor in world space.
+GetActorRightVector(): Returns the right vector of the actor in world space.
+GetActorUpVector(): Returns the up vector of the actor in world space.
+GetWorld(): Returns a reference to the current world.
+GetWorldTimeSeconds(): Returns the current time in seconds since the game started.
+GetActorScale(): Returns the scale of the actor.
+SetActorScale3D(): Sets the scale of the actor.
+SetActorRelativeLocation(): Sets the location of the actor relative to its current position.
+SetActorRelativeRotation(): Sets the rotation of the actor relative to its current rotation.
+SetActorRelativeScale3D(): Sets the scale of the actor relative to its current scale.
+SetLifeSpan(): Sets the lifespan of the actor.
+GetLifeSpan(): Returns the lifespan of the actor.
+GetComponentsByClass(): Returns an array of components of the specified class that are attached to the actor.
+GetComponentByClass(): Returns the first component of the specified class that is attached to the actor.
+SetActorEnableCollision(): Enables or disables collision on the actor.
+SetActorHiddenInGame(): Hides or shows the actor in game.
+SetActorTickEnabled(): Enables or disables ticking on the actor.
+GetActorBounds(): Returns the bounding box of the actor.
+GetActorScale3D(): Returns the scale of the actor in all three dimensions.
+Construction Script: A function that is called when the actor is constructed in the level editor or at runtime.
+BeginPlay/EndPlay: Functions that are called when the actor is spawned or destroyed.
+Tick: A function that is called every frame to update the actor's state.
+Component Attachment: Functions for attaching and detaching components to the actor.
+Event Dispatchers: Functions for defining and triggering custom events that other objects can listen to.
+Input: Functions for handling user input events, such as mouse clicks and key presses.
+Movement: Functions for moving and rotating the actor.
+Replication: Functions for handling network replication of the actor's state.
+
+Note that this is not an exhaustive list and there are many more functions and properties available in the AActor class.
+
+Official Documentation : https://docs.unrealengine.com/5.1/en-US/API/Runtime/Engine/GameFramework/AActor/
