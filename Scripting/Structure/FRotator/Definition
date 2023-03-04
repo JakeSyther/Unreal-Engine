@@ -1,0 +1,40 @@
+FRotator is a struct in Unreal Engine's scripting language that represents a rotation in 3D space. 
+It is similar to FVector, but instead of representing a position or location, it represents a rotation.
+
+Some information about FRotator:
+
+FRotator has three components: Pitch, Yaw, and Roll. 
+These correspond to rotations around the X, Y, and Z axes, respectively.
+
+The components are represented as floating-point values, with a default range of -360 to 360 degrees.
+
+FRotator can be constructed in several ways. For example:
+-----------------------------------------------------------------------------------------------------------------------
+FRotator MyRotator(0, 90, 0);                // Constructs an FRotator with Yaw of 90 degrees
+FRotator AnotherRotator = FRotator(0, 0, 0); // Constructs an FRotator with Pitch, Yaw, and Roll all set to 0
+-----------------------------------------------------------------------------------------------------------------------
+
+FRotator provides several useful functions for working with rotations. 
+
+Some examples include:
+
+* FRotator::Add()               - Adds two FRotator values together.
+* FRotator::Normalize()         - Normalizes the FRotator to have values between -180 and 180 degrees.
+* FRotator::Clamp()             - Clamps the FRotator values to a given range.
+- FRotator::GetForwardVector()  - Returns a FVector that represents the forward direction of the rotation.
+
+,
+Aexample of using FRotator to rotate an actor in Unreal Engine:
+-----------------------------------------------------------------------------------
+void AMyActor::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+
+    // Rotate the actor's rotation around the Yaw axis
+    FRotator CurrentRotation = GetActorRotation();
+    FRotator NewRotation = CurrentRotation.Add(0, RotationSpeed * DeltaTime, 0);
+    SetActorRotation(NewRotation);
+}
+-----------------------------------------------------------------------------------
+
+
