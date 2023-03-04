@@ -1,0 +1,85 @@
+FMath is a static class in Unreal Engine that provides a range of math functions for use in game development.
+Some of the key features of FMath include:
+
+* Basic math functions such as addition, subtraction, multiplication, and division
+* Trigonometric functions such as sine, cosine, and tangent
+* Exponential and logarithmic functions
+* Random number generation
+* Vector and matrix operations, such as dot product, cross product, and matrix multiplication
+* Conversion functions for converting between degrees and radians
+
+FMath is commonly used in game development to perform calculations related to game physics, collision detection, and AI. 
+It can also be used for a wide range of other purposes such as procedural content generation, data analysis, and more.
+
+You can find more information about FMath in Unreal Engine in the official documentation 
+at this link: https://docs.unrealengine.com/en-US/API/Runtime/Core/Math/FMath/index.html
+
+Some of the most commonly used properties of FMath in Unreal Engine:
+
+PI                  : A float constant representing the mathematical constant pi (3.14159265359...).
+HALF_PI             : A float constant representing half of pi (1.57079632679...).
+DELTA               : A small float value used for comparisons, generally set to 0.00001.
+SMALL_NUMBER        : A small float value used for comparisons, generally set to 0.0001.
+KINDA_SMALL_NUMBER  : A small float value used for comparisons, generally set to 0.001.
+BIG_NUMBER          : A large float value used for comparisons, generally set to 3.4e+38.
+EULERS_NUMBER       : A float constant representing the mathematical constant e (2.71828182845...).
+MAX_uint8           : The maximum value for an unsigned 8-bit integer (255).
+MAX_int32           : The maximum value for a signed 32-bit integer (2147483647).
+MIN_int32           : The minimum value for a signed 32-bit integer (-2147483648).
+
+Some of the commonly used static functions of the FMath class in Unreal Engine:
+
+Abs              - Returns the absolute value of a number.
+Acos             - Returns the arccosine of a number in radians.
+Asin             - Returns the arcsine of a number in radians.
+Atan             - Returns the arctangent of a number in radians.
+Atan2            - Returns the arctangent of the quotient of two specified numbers.
+CeilToInt        - Returns the smallest integer greater than or equal to a given number.
+Clamp            - Clamps a value between a minimum and maximum value.
+Cos              - Returns the cosine of a number in radians.
+DegreesToRadians - Converts degrees to radians.
+Exp              - Returns the base-e exponential function of a specified number.
+FloorToInt       - Returns the largest integer less than or equal to a given number.
+Fmod             - Returns the floating-point remainder of dividing two specified numbers.
+IsNearlyEqual    - Returns true if two numbers are nearly equal within a specified tolerance.
+Lerp             - Performs a linear interpolation between two values.
+Loge             - Returns the natural (base-e) logarithm of a specified number.
+Max              - Returns the larger of two numbers.
+Min              - Returns the smaller of two numbers.
+Pow              - Returns the specified number raised to the specified power.
+RadiansToDegrees - Converts radians to degrees.
+RandRange        - Returns a random number between a specified minimum and maximum value.
+RoundToInt       - Rounds a given number to the nearest integer.
+Sin              - Returns the sine of a number in radians.
+Sqrt             - Returns the square root of a specified number.
+Tan              - Returns the tangent of a number in radians.
+
+Parameters:
+
+float       : a floating point number used for calculations
+int32       : an integer used for calculations
+FVector     : a vector with x, y, and z components
+FRotator    : a rotation with pitch, yaw, and roll components
+FTransform  : a transform with location, rotation, and scale components
+
+Structures:
+
+FBox              : a box with a minimum and maximum point
+FBoxSphereBounds  : a bounds volume defined by a sphere and a box
+FColor            : a color with red, green, blue, and alpha components
+FMatrix           : a 4x4 matrix used for transforms
+FPlane            : a plane with a normal vector and distance from the origin
+FRandomStream     : a pseudo-random number generator
+FTransformMatrix  : a 4x4 matrix used for transforms, with additional scale information
+FVector2D         : a vector with x and y components
+FViewport         : a structure containing information about a viewport
+
+This is not an exhaustive list, but it covers many of the commonly used functions, parameters, structures in the FMath class.
+For a full list of functions and their parameters, you can refer to the Unreal Engine documentation on 
+FMath: https://docs.unrealengine.com/en-US/API/Runtime/Core/Math/FMath/index.html
+
+
+
+
+
+
