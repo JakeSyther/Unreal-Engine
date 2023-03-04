@@ -1,0 +1,40 @@
+In computer programming, a macro is a set of instructions or a code fragment that is given a name and can be invoked multiple times throughout the code. 
+Macros are often used to simplify repetitive or complex code structures, making it easier to write and maintain code.
+
+In C++, macros are defined using the #define preprocessor directive. 
+A macro definition typically consists of a name and a body of code that will be executed whenever the macro is called. 
+
+
+For example:
+----------------------------------------
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+----------------------------------------
+
+This macro defines a function-like macro named MAX that takes two arguments and returns the maximum of the two.
+The body of the macro is enclosed in parentheses and uses the ternary operator to perform the comparison.
+
+Macros can be very powerful, but they can also be misused and can lead to hard-to-debug errors if not used carefully. 
+It is important to understand the scope and behavior of macros in order to use them effectively.
+
+In Unreal Engine, the UPROPERTY macro is used extensively to define properties of objects in C++. 
+It is used to specify the behavior of the property, such as its visibility in the editor, 
+how it should be serialized, and whether it should be replicated across the network in multiplayer games.
+
+Some of the commonly used static macros in Unreal Engine:
+
+UCLASS()                             - Used to define a class that can be used in the Unreal Editor and can be instantiated in-game.
+UFUNCTION()                          - Used to define a function that can be called from UnrealScript or Blueprints.
+UPROPERTY()                          - Used to declare a property that can be edited in the Unreal Editor.
+UENUM()                              - Used to define an enumeration that can be used in UnrealScript or Blueprints.
+USTRUCT()                            - Used to define a custom structure that can be used in UnrealScript or Blueprints.
+DECLARE_EVENT()                      - Used to declare an event that can be broadcast and bound to from Blueprint.
+DECLARE_INTERFACE()                  - Used to declare an interface that can be implemented by classes.
+DECLARE_LOG_CATEGORY_EXTERN()        - Used to declare a log category that can be used for logging.
+DECLARE_DYNAMIC_MULTICAST_DELEGATE() - Used to declare a multicast delegate that can be bound to and invoked from Blueprint.
+
+These are just a few examples of the many static macros used in Unreal Engine. 
+Each macro has a specific purpose and usage, and they are all designed to make development easier and more efficient.
+
+
+Unreal Engine documentation page on macros: https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/Reference/CppProgrammingBasics/Macros/index.html
+This page provides more detailed information on the various macros used in Unreal Engine, including examples of how to use them and their specific functionalities.
