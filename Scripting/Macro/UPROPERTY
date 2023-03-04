@@ -1,0 +1,33 @@
+UPROPERTY is a macro used in Unreal Engine's C++ programming language to define a property for a class. 
+It is used to specify the attributes of a member variable, such as how it should be displayed in the editor, how it should be saved or loaded,
+and whether it should be replicated across the network for multiplayer games.
+
+UPROPERTY can be used to specify various attributes, such as : 
+EditAnywhere       (allows the property to be edited in the editor),
+BlueprintReadWrite (allows the property to be accessed and modified from Blueprint), 
+BlueprintReadOnly  (allows the property to be accessed but not modified from Blueprint), -and-
+Replicated         (indicates that the property should be replicated across the network).
+
+An example of how UPROPERTY can be used:
+
+------------------------------------------------------------------------------------
+UCLASS()
+class AMyActor : public AActor
+{
+  GENERATED_BODY()
+
+public:
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MyActor")
+  float MyFloat;
+};
+------------------------------------------------------------------------------------
+
+This code defines a class called AMyActor that inherits from AActor. 
+It has a public member variable called MyFloat, which is decorated with the UPROPERTY macro.
+This property is editable in the editor and can be accessed and modified in Blueprint.
+
+For more information, you can check the official Unreal Engine documentation on UPROPERTY:
+https://docs.unrealengine.com/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Reference/Properties/Specifiers/PropertySpecifiers/index.html
+
+
+
