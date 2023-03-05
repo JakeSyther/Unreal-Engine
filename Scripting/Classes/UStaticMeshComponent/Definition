@@ -1,0 +1,29 @@
+UStaticMeshComponent is a component class in Unreal Engine that allows you to add a static mesh to an actor. 
+A static mesh is a 3D object that does not have any animation or skeletal structure, 
+and is typically used for environmental or architectural elements in a game or simulation.
+
+Some of the key features and properties of UStaticMeshComponent:
+
+* Mesh      : The static mesh that the component uses.
+* Materials : The materials that are applied to the mesh. These can be set per-instance or globally for the entire mesh.
+* Collision : The collision settings for the mesh, including whether it has collision enabled, its collision profile, and its physics properties.
+* LODs      : The level-of-detail settings for the mesh, including which meshes to use at different distances from the camera.
+* Lighting  : The lighting settings for the mesh, including whether it casts shadows and how it interacts with various types of lights.
+* Transform : The position, rotation, and scale of the component within its parent actor's coordinate space.
+* Visibility: Whether the component is currently visible, and whether it should be hidden in certain circumstances (such as when the player is too far away).
+
+
+UStaticMeshComponent also has a number of functions and events that allow you to interact with it in various ways. 
+
+For example, you can use functions like SetStaticMesh() to change the mesh that the component is using, or events like OnComponentHit() to respond
+to collisions with other objects in the game world.
+
+Overall, UStaticMeshComponent is a versatile and powerful tool that allows you to add 3D objects to your game or simulation with ease.
+
+You can find more information about UStaticMeshComponent on the official Unreal Engine documentation website. 
+Here is the link to the page about UStaticMeshComponent:
+
+https://docs.unrealengine.com/en-US/API/Runtime/Engine/Components/UStaticMeshComponent/index.html
+
+On this page, you can find detailed information about the class, including its properties, functions, and how to use it in your code. 
+Additionally, you can find examples and code snippets that demonstrate how to work with UStaticMeshComponent.
