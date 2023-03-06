@@ -1,0 +1,55 @@
+UObject is the base class of all Unreal Engine objects.
+It provides fundamental features such as object serialization, garbage collection, reflection, and networking. 
+Every object in UE4 is an instance of UObject or its subclass.
+
+UObject provides a number of useful functions such as:
+
+* GetName() and GetFullName() to get the name and full path of the object
+* Set/GetProperty() to set and get a named property value
+* FindObject() to search for an object by name and/or class
+* LoadObject() to load an object from a package
+* Serialize() to save and load the object to and from an archive
+
+UObject can be used in a variety of ways, such as creating a new custom class that derives from UObject,
+or using existing classes that derive fromUObject such as Actor, Component, and Widget.
+
+UObject is located in the UObject.h header file and is included in many other headers throughout the engine.
+
+
+Example:
+------------------------------------------------------------------------------------------------------------------------------------------
+// Custom UObject class header
+#pragma once
+
+#include "CoreMinimal.h"
+#include "UObject/Object.h"
+#include "MyUObject.generated.h"
+
+UCLASS()
+class MYPROJECT_API UMyUObject : public UObject
+{
+    GENERATED_BODY()
+
+public:
+    // Constructor
+    UMyUObject();
+
+    // Public variable
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="My UObject")
+    int32 MyInt;
+};
+
+// Custom UObject class implementation
+#include "MyUObject.h"
+
+UMyUObject::UMyUObject()
+{
+    // Set default values
+    MyInt = 0;
+}
+------------------------------------------------------------------------------------------------------------------------------------------
+Link: https://docs.unrealengine.com/5.0/en-US/API/Runtime/CoreUObject/UObject/UObject/CreateDefaultSubobject/2/
+
+It's important to understand the concept of objects in UE5 and their relationship to the game engine.
+Make sure to read the documentation thoroughly and practice creating and using custom UObject classes to get familiar with the concepts. 
+Additionally, consider the memory management implications when working with UObject-derived classes as they are managed by the garbage collector.
