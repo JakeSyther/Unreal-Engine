@@ -1,0 +1,24 @@
+In Unreal Engine, FName is a struct used to represent a name or identifier.
+It is used extensively throughout the engine, particularly in areas like gameplay tags and networking.
+
+Here are some key points to keep in mind about FName:
+
+* FName objects are immutable, meaning once they are created they cannot be changed.
+* FName is very lightweight, and can be compared and assigned very quickly.
+* FName objects are automatically pooled and reused, which helps reduce memory usage and improve performance.
+* You can create an FName object using the FName() constructor, passing in a const TCHAR* string as the parameter.
+* You can get the string representation of an FName object using the ToString() method.
+* FName objects are often used as keys in maps and other data structures, because they provide a fast and efficient way to look up and compare objects.
+
+An example of how you might use FName in code:
+------------------------------------------------------------------------
+// Create a new FName object
+FName MyName("MyName");
+
+// Get the string representation of the FName object
+FString MyString = MyName.ToString();
+
+// Use the FName object as a key in a map
+TMap<FName, int32> MyMap;
+MyMap.Add(MyName, 42);
+------------------------------------------------------------------------
