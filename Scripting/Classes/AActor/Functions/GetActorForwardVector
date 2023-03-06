@@ -1,0 +1,43 @@
+GetActorForwardVector is a function in Unreal Engine that returns the forward vector of an actor, which is the direction it is facing in local space.
+The forward vector is a normalized 3D vector that points in the direction that the actor is facing.
+
+This function is a member of the AActor class, which is the base class for all actors in Unreal Engine.
+It can be used to get the forward vector of any actor in the game, including the player's character and non-playable characters.
+
+An example of how to use GetActorForwardVector:
+
+// Get the forward vector of an actor
+AActor* MyActor       = GetWorld()->GetFirstPlayerController()->GetPawn();
+FVector ForwardVector = MyActor->GetActorForwardVector();
+
+
+This code gets the first player controller's pawn from the game world, which is an actor that represents the player character.
+It then gets the forward vector of the pawn using GetActorForwardVector and stores it in a FVector variable called ForwardVector.
+
+GetActorForwardVector can be found in the AActor class, which is located at the top of the Unreal Engine class hierarchy.
+The AActor class is the parent class for many other classes in the engine, including APawn, ACharacter, AStaticMeshActor, and many more.
+
+Official documentation for GetActorForwardVector can be found on the 
+Unreal Engine website here: https://docs.unrealengine.com/en-US/API/Runtime/Engine/GameFramework/AActor/GetActorForwardVector/index.html
+
+Remember to always consult the official documentation when using Unreal Engine functions and classes, as it contains the most up-to-date and accurate information.
+
+
+Here's an another example of how to use GetActorForwardVector...
+
+Let's say you have a APawn class and you want to move it forward in the direction it's facing. 
+You can use GetActorForwardVector to get the forward direction vector of the pawn and then multiply it by a movement speed to move the pawn in that direction.
+
+How to do that:
+
+void AMovementPawn::MoveForward(float Value)
+{
+    FVector Direction = GetActorForwardVector();
+    AddMovementInput(Direction, Value);
+}
+
+In this example, MoveForward is a function that takes a float Value as a parameter. 
+This value represents the input from the player (e.g. from a keyboard or gamepad).
+
+The function gets the forward direction vector of the pawn using GetActorForwardVector and stores it in the Direction variable.
+It then calls the AddMovementInput function to add movement input in the Direction vector multiplied by the Value parameter.
