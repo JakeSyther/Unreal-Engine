@@ -1,0 +1,42 @@
+USkeletalMeshComponent is a component in Unreal Engine used for rendering and animating skeletal meshes. 
+It provides a way to attach a mesh with a skeleton to a GameObject in the world and control the animation and appearance of the mesh through code. 
+It can also be used for physics simulation and collision detection.
+
+USkeletalMeshComponent is part of the engine's Actor Component hierarchy and can be added to any Actor in a game.
+It is typically added to a Pawn or Character to control their appearance and animation.
+
+An example of how to use USkeletalMeshComponent in Unreal Engine Scripting via C++:
+-------------------------------------------------------------------------------------------------
+// Declare a USkeletalMeshComponent pointer
+USkeletalMeshComponent* MeshComponent;
+
+// Initialize the mesh component
+MeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshComponent"));
+
+// Set the mesh to be used
+MeshComponent->SetSkeletalMesh(MySkeletalMesh);
+
+// Set the animation mode to loop
+MeshComponent->SetAnimationMode(EAnimationMode::AnimationSingleNode);
+MeshComponent->SetLooping(true);
+
+// Play the animation
+MeshComponent->PlayAnimation(MyAnimation, true);
+------------------------------------------------------------------------------------------------
+
+We first declare a pointer to a USkeletalMeshComponent.
+We then initialize it using the CreateDefaultSubobject method and set the SkeletalMesh property to the mesh we want to use.
+We also set the animation mode to loop and play a specific animation.
+
+USkeletalMeshComponent is a powerful tool for creating complex animations and visual effects in Unreal Engine.
+It is widely used in game development and can be a valuable addition to any project.
+
+For more information on USkeletalMeshComponent, you can visit the official Unreal Engine documentation: 
+https://docs.unrealengine.com/en-US/API/Runtime/Engine/Components/USkeletalMeshComponent/index.html
+
+Using USkeletalMeshComponent would be to familiarize yourself with the documentation and experiment 
+with different properties and settings to achieve the desired effects. 
+It can take some time to get used to, but it's a valuable tool for creating immersive and engaging gameplay experiences.
+
+
+
