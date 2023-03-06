@@ -1,0 +1,51 @@
+UCapsuleComponent is a class in Unreal Engine that represents a capsule-shaped collision component that can be added to actors to enable collision detection.
+It is derived from the USceneComponent class, which is a base class for all components that can be attached to actors in the game world.
+
+UCapsuleComponent provides a collision shape that is a capsule, which is defined by its radius and half-height.
+This shape can be used for detecting overlaps and collisions with other objects in the game world, such as other actors, static meshes, or projectiles.
+
+In addition to collision detection, UCapsuleComponent also provides a variety of other features, including physics simulation, attachment to other components,
+and visual representation. It can be used for both gameplay and non-gameplay purposes, such as representing player characters, enemies, or environmental hazards.
+
+UCapsuleComponent can be found in the "Components" category in the Unreal Engine hierarchy, along with other commonly used components such as UStaticMeshComponent,
+USkeletalMeshComponent, and UParticleSystemComponent. It can be added to actors either through the Blueprint editor or through C++ code.
+
+
+An example of how to implement and assign a UCapsuleComponent in C++:
+
+First, in your header file (.h), you will need to include the CapsuleComponent.h header file, and then declare a pointer to a UCapsuleComponent:
+
+#include "Components/CapsuleComponent.h"
+
+class AMovementCharacter : public ACharacter
+{
+    // ...
+private:
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+    UCapsuleComponent* CapsuleComponent;
+};
+
+Next, in the constructor of your character class, you can initialize the CapsuleComponent:
+
+
+AMovementCharacter::AMovementCharacter()
+{
+    // Create a capsule component for collision
+    CapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleComponent"));
+    CapsuleComponent->SetupAttachment(RootComponent);
+}
+
+In this example, the CreateDefaultSubobject method is used to create an instance of the UCapsuleComponent and assign it to the CapsuleComponent pointer.
+The SetupAttachment method is then used to attach the capsule component to the root component of the character.
+
+You can then use the CapsuleComponent pointer to access the properties and methods of the UCapsuleComponent.
+
+Note that the UCapsuleComponent class is part of the Components module, and can be found in the Unreal Engine hierarchy
+under Actor -> Components -> Shape Components -> Capsule Component.
+
+Working with UCapsuleComponent would be to carefully consider its size and placement on actors to ensure accurate collision detection
+and gameplay mechanics.
+It's also important to test and iterate on its settings to achieve the desired gameplay feel and visual representation.
+
+Here is the official documentation link for UCapsuleComponent:
+https://docs.unrealengine.com/en-US/API/Runtime/Engine/Components/UCapsuleComponent/index.html
