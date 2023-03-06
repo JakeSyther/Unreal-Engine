@@ -1,0 +1,29 @@
+USpringArmComponent is a component in Unreal Engine that provides a simple way to add a spring arm to a game object, typically a camera or a weapon.
+The spring arm applies a force that pulls the attached object towards a certain location, which can help to create a more realistic movement and animation for the object.
+
+The USpringArmComponent is located in the Components category in the Unreal Engine Editor's hierarchy.
+
+An example of how to use USpringArmComponent in code:
+
+// Attach the spring arm component to the actor
+USpringArmComponent* SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+SpringArm->SetupAttachment(RootComponent);
+SpringArm->TargetArmLength = 300.0f; // Set the length of the spring arm
+SpringArm->bEnableCameraLag = true; // Enable camera lag for a smoother camera movement
+
+// Attach the camera component to the spring arm
+UCameraComponent* Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
+
+In this example, we create a new USpringArmComponent and attach it to the root component of an actor. 
+We set the target arm length to 300, which is the distance between the actor and the camera. 
+We also enable camera lag to create a smoother camera movement.
+
+Then, we create a UCameraComponent and attach it to the USpringArmComponent using the USpringArmComponent::SocketName.
+This attaches the camera to the end of the spring arm, which will move the camera based on the spring arm's force.
+
+Here is a link to the official Unreal Engine documentation on USpringArmComponent:
+https://docs.unrealengine.com/en-US/API/Components/USpringArmComponent/index.html
+
+Advice: When using USpringArmComponent, it's important to balance the length of the spring arm and the camera's location to ensure a smooth and realistic movement.
+Additionally, enabling camera lag can help to create a more natural-looking camera movement.
