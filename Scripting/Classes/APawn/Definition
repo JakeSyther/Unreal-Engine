@@ -1,0 +1,18 @@
+APawn is a base class in Unreal Engine that represents the player or any other entity that can be controlled by a player or AI.
+It provides basic functionality such as movement and collision detection, and is meant to be extended by subclasses for more specialized behavior.
+
+Some key features of APawn include:
+
+* A movement component, which handles the physics and movement of the pawn.
+* An input component, which handles input from the player or AI.
+* A collision component, which detects collisions with other objects in the game world.
+
+When creating a new pawn, you typically create a subclass of APawn and add functionality specific to your game.
+For example, you might add a weapon system or AI behavior.
+
+Official Unreal Engine documentation on APawn: https://docs.unrealengine.com/en-US/API/Runtime/Engine/GameFramework/APawn/index.html
+
+Working with Unreal Engine is to always keep the documentation close at hand and refer to it often.
+The Unreal Engine documentation is extensive and can be a valuable resource for learning about the engine's features and best practices for developing games.
+Additionally, don't be afraid to ask questions and seek out help from the community when you run into problems or need advice.
+There are many experienced developers who are willing to share their knowledge and help others learn.
