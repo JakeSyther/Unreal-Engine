@@ -1,0 +1,30 @@
+UCameraComponent is a class in Unreal Engine that represents a camera object in a game. 
+It allows you to control the position, orientation, and field of view of the camera in the game world.
+
+The UCameraComponent is typically added as a component to an AActor-derived class (e.g. APawn) to provide a way to visualize 
+and interact with the game world from a particular perspective. It is located under the "Camera" section in the "Add Component" menu in the Unreal Editor.
+
+An example of how to create and set up a UCameraComponent in code:
+
+// Create a UCameraComponent and attach it to an AActor-derived class
+UCameraComponent* CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+CameraComponent->SetupAttachment(RootComponent);
+
+// Set the position and orientation of the camera
+CameraComponent->SetRelativeLocation(FVector(0.f, 0.f, 50.f));
+CameraComponent->SetRelativeRotation(FRotator(-45.f, 0.f, 0.f));
+
+// Set the field of view of the camera
+CameraComponent->SetFieldOfView(90.f);
+
+In this example, we create a new UCameraComponent and attach it to the RootComponent of an AActor-derived class.
+We then set the position and orientation of the camera and adjust the field of view.
+
+Here is the link to the official documentation for UCameraComponent: 
+https://docs.unrealengine.com/en-US/API/Runtime/Engine/Camera/UCameraComponent/index.html
+
+My advice to you is to experiment with the various properties of the UCameraComponent in the Unreal Editor and in code to get a feel for how it works.
+Remember to also consider the performance impact of your camera settings, as the camera can be a major contributor to the workload of the game engine.
+
+
+
