@@ -1,0 +1,27 @@
+"AddMovementInput" is a method provided by the "ACharacter" and "APawn" classes in Unreal Engine. 
+It allows you to add movement input to the controlled character or pawn.
+
+Here's some information about AddMovementInput:
+
+The method takes a FVector parameter which represents the direction and magnitude of the movement input.
+The input vector is in the local space of the pawn or character.
+The input is multiplied by the MaxAcceleration parameter of the character or pawn, so the magnitude of the input vector should be between 0 and 1.
+The resulting acceleration is added to the current velocity of the character or pawn.
+
+"AddMovementInput" can be useful in a variety of situations, such as implementing movement with WASD or arrow keys, 
+or for moving characters in response to game events like explosions or knockback.
+
+In the Unreal Engine hierarchy, AddMovementInput is located in the ACharacter and APawn classes, which are both subclasses of AActor.
+You can find the documentation for AddMovementInput in the Unreal Engine API documentation for ACharacter and APawn.
+
+Here is a link to the documentation for ACharacter:
+https://docs.unrealengine.com/en-US/API/Runtime/Engine/GameFramework/ACharacter/index.html
+
+And here is a link to the documentation for APawn:
+https://docs.unrealengine.com/en-US/API/Runtime/Engine/GameFramework/APawn/index.html
+
+Remember, it's always a good idea to read and understand the documentation thoroughly before using any method or class in Unreal Engine. 
+Additionally, make sure to use best practices and adhere to the programming standards and conventions for the engine to ensure your code is optimized and maintainable.
+
+
+
