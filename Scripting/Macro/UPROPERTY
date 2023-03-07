@@ -3,10 +3,38 @@ It is used to specify the attributes of a member variable, such as how it should
 and whether it should be replicated across the network for multiplayer games.
 
 UPROPERTY can be used to specify various attributes, such as : 
-EditAnywhere       (allows the property to be edited in the editor),
-BlueprintReadWrite (allows the property to be accessed and modified from Blueprint), 
-BlueprintReadOnly  (allows the property to be accessed but not modified from Blueprint), -and-
-Replicated         (indicates that the property should be replicated across the network).
+
+BlueprintReadOnly: This property specifier indicates that the property can only be read from code, and not modified.
+BlueprintReadWrite: This property specifier indicates that the property can be read and modified from Blueprint graphs and code.
+VisibleAnywhere: This property specifier indicates that the property is visible in the editor and can be read, but not modified.
+EditAnywhere: This property specifier indicates that the property is visible in the editor and can be both read and modified.
+Category: This property specifier allows you to group related properties together in the editor, making them easier to find and manage.
+DisplayName: This property specifier allows you to customize the name that is displayed for the property in the editor.
+EditFixedSize: This property specifier indicates that the property is an array or struct of fixed size, and cannot be resized or modified.
+EditFixedSizeInline: This property specifier is similar to EditFixedSize, but allows the elements of the array or struct to be edited inline in the editor.
+EditInline: This property specifier indicates that the property is a component or object that can be edited inline in the owning object's details panel.
+EditInstanceOnly: This property specifier indicates that the property can only be modified on instances of the object, and not on the class or blueprint.
+EditDefaultsOnly: This property specifier indicates that the property can only be modified on the class or blueprint, and not on instances of the object.
+Instanced: This property specifier indicates that the property is an instanced property, meaning that each instance of the object has its own value.
+NonTransactional: This property specifier indicates that changes to the property are not transactional and cannot be undone.
+SaveGame: This property specifier indicates that the property should be saved when the game is saved.
+SimpleDisplay: This property specifier indicates that the property should be displayed using a simplified UI in the editor.
+Transient: This property specifier indicates that the property should not be saved or loaded, and is used only for transient state or caching.
+AdvancedDisplay: This property specifier indicates that the property should be displayed using an advanced UI in the editor, which can be collapsed or expanded.
+AssetRegistrySearchable: This property specifier indicates that the property should be searchable in the Asset Registry.
+BlueprintReadOnly: This property specifier indicates that the property can only be read from code, and not modified.
+Config: This property specifier indicates that the property can be modified in configuration files, such as .ini files.
+Deprecated: This property specifier indicates that the property is deprecated and should not be used.
+HideInDetailsView: This property specifier indicates that the property should be hidden in the object's details view.
+HideInListView: This property specifier indicates that the property should be hidden in the object's list view.
+Interp: This property specifier indicates that the property can be interpolated over time, such as for animations.
+NoClear: This property specifier indicates that the property should not be cleared to its default value when the object is initialized.
+NoDestructor: This property specifier indicates that the property should not be destroyed when the object is destroyed.
+NonPIEDuplicateTransient: This property specifier indicates that the property should not be duplicated when a PIE (Play In Editor) session is started.
+NotReplicated: This property specifier indicates that the property should not be replicated over the network.
+Replicated: This property specifier indicates that the property should be replicated over the network.
+ReplicatedUsing: This property specifier indicates that the property should be replicated over the network using a custom replication function.
+BlueprintReadOnly: This property specifier indicates that the property can only be read from code, and not modified.
 
 An example of how UPROPERTY can be used:
 
