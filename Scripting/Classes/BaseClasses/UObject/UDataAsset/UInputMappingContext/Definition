@@ -17,12 +17,6 @@ Contextual Controls: UInputMappingContext allows you to define different sets of
 Customizable: UInputMappingContext is highly customizable and extensible, allowing you to add new input devices and control schemes,
               define custom input actions, and more.
               
-For more information about UInputMappingContext in Unreal Engine 5.1, you can refer to the official documentation on the Unreal Engine website:
-https://docs.unrealengine.com/5.1/en-US/API/Runtime/Engine/Input/UInputMappingContext/
-
-This documentation provides a detailed reference for the UInputMappingContext class and its various methods and properties, 
-as well as examples and best practices for using it in your projects.
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Syntax and example:
 
@@ -49,4 +43,8 @@ This is just a basic example, but UInputMappingContext is a powerful and flexibl
 in many different ways to manage input actionsand control schemes in your game.
 
 
+For more information about UInputMappingContext in Unreal Engine 5.1, you can refer to the official documentation on the Unreal Engine website:
+https://docs.unrealengine.com/5.1/en-US/API/Runtime/Engine/Input/UInputMappingContext/
 
+This documentation provides a detailed reference for the UInputMappingContext class and its various methods and properties, 
+as well as examples and best practices for using it in your projects.
