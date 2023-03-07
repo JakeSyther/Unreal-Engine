@@ -1,0 +1,27 @@
+Menu Bar: The Menu Bar is located at the top of the editor window and contains menus with various options and commands for working with the engine.
+The menus include options for managing the project, editing and manipulating content, and configuring engine settings.
+
+Main Toolbar: The Main Toolbar is located below the Menu Bar and contains buttons for commonly used tools and features in the editor.
+These include buttons for creating new assets, opening the Level Editor, and toggling between different modes of the editor.
+
+Level Viewport: The Level Viewport is the main area of the editor where you create and manipulate your game world. 
+It displays a 3D view of your level and allows you to place and manipulate objects, edit lighting, and add effects. You can move around the viewport using the WASD keys and rotate the camera using the right mouse button.
+
+Content Drawer button: The Content Drawer button is located in the upper left corner of the editor window and opens the Content Browser,
+which is used to manage and organize all of the assets and resources used in your project.
+You can use the Content Browser to create and edit assets, import content from external sources, and organize your project files.
+
+Bottom Toolbar: The Bottom Toolbar is located at the bottom of the editor window and contains buttons for various tools and features,
+including navigation controls, level editing tools, and viewport options.
+
+Outliner: The Outliner is a panel located on the left side of the editor window that displays a hierarchical view of all the objects in your level. 
+You can use the Outliner to select and manipulate objects, group them into folders, and organize them into levels.
+
+Details panel: The Details panel is a panel located on the right side of the editor window that displays detailed information about 
+the currently selected object in the level viewport or Outliner. You can use the Details panel to edit properties and settings for objects, 
+add and remove components, and manage relationships between objects.
+
+In addition to these primary interface elements, the Unreal Editor also includes a variety of other panels and tools that can be accessed through the menus,
+toolbars, and context menus. These tools include various editors for creating and editing content, 
+visual scripting tools for creating gameplay logic, and debugging tools for testing and optimizing your game.
+Overall, the Unreal Editor interface is designed to provide a comprehensive set of tools and features for creating high-quality games and interactive experiences.
