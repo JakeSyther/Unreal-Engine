@@ -1,0 +1,69 @@
+Templates are a powerful feature of C++ that allow you to write generic classes and functions that can be used with a wide range of data types. 
+In Unreal Engine scripting, templates are widely used to create flexible and reusable code.
+
+Here are some of the main template-related constructs in Unreal Engine scripting, along with explanations of what they do:
+
+TCastFlags            : This is an enum that defines the various options that can be passed to the Cast function in order to control its behavior. 
+                        For example, you can use TCF_ExplicitConversion to force the Cast function to perform an explicit conversion, 
+                        or TCF_FastCast to use a faster but less-safe cast implementation.
+
+TCastImpl             : This is a helper template class that is used internally by the Cast function to perform the actual type casting.
+                        You generally don't need to use this class directly in your code.
+
+TGetCastType          : This is a helper template function that is used internally by the Cast function to determine the type of the object being cast. 
+                        You generally don't need to use this function directly in your code.
+
+TIsCastable           : This is a template class that allows you to check whether a given object can be cast to a particular type.
+                        You can use this class to perform runtime type checks and avoid crashes due to invalid casts.
+
+TIsCastableToPointer  : This is a template class that allows you to check whether a given object can be cast to a pointer type. 
+                        You can use this class to perform runtime type checks and avoid crashes due to invalid casts.
+
+TIsIInterface         : This is a template class that allows you to check whether a given type implements a particular interface. 
+                        You can use this class to perform runtime checks and avoid crashes due to invalid interface calls.
+
+TIsTSubclassOf        : This is a template class that allows you to check whether a given type is a subclass of another type.
+                        You can use this class to perform runtime checks and avoid crashes due to invalid type assignments.
+
+TNonNullSubclassOf    : This is a template class that is similar to TSubclassOf, but it enforces a non-null template parameter.
+                        You can use this class to ensure that a particular subclass type is always provided.
+
+TSubclassOf           : This is a template class that allows you to specify a subclass of a particular base class. 
+                        You can use this class as a parameter or member variable type to enforce type safety and reduce the likelihood of runtime errors.
+
+Here's an example of how you might use templates in Unreal Engine scripting:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Define a generic function that takes any type that can be cast to AActor
+template<typename T>
+void DoSomethingWithActor(T* Actor)
+{
+    AActor* CastedActor = Cast<AActor>(Actor);
+    if (CastedActor)
+    {
+        // Perform some operation on the actor
+        CastedActor->SetActorLocation(FVector(0, 0, 0));
+    }
+}
+
+// Call the function with an instance of a subclass of AActor
+MyActor* MyActorInstance = GetActor<MyActor>();
+DoSomethingWithActor(MyActorInstance);
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the DoSomethingWithActor function is defined using a template parameter that can be any type that can be cast to AActor. 
+Inside the function, the Cast function is used to safely cast the input object to AActor, and then some operation is performed on the actor.
+Finally, the function is called with an instance of a subclass of AActor.
+
+The link to the Unreal Engine 5.1 documentation on Templates in Unreal Engine Scripting:
+https://docs.unrealengine.com/5.1/en-US/ProgrammingAndScripting/ProgrammingWithCPP/Templates/
+
+This documentation covers the basics of templates in Unreal Engine Scripting, including their syntax, common use cases, and best practices.
+It also provides examples of how to use various Unreal Engine templates, such as TSubclassOf, TSharedPtr, and TMap.
+
+I would recommend starting with the "Introduction to Templates" section, which provides an overview of what templates are and why they are useful.
+Then, you can dive deeper into specific template types and their usage in Unreal Engine Scripting.
+
+As always, it's a good idea to practice writing and using templates yourself to really solidify your understanding.
+
+
+
