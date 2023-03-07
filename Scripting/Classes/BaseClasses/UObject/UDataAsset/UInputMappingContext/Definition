@@ -1,0 +1,52 @@
+UInputMappingContext is a class in Unreal Engine that is used to manage input mappings for various input devices and platforms. 
+It provides a way to define and organize input actions that can be used across multiple input devices and game modes.
+UInputMappingContext can be thought of as a container that holds a set of input actions and allows them to be shared and reused in different contexts.
+
+Some of the key features and benefits of using UInputMappingContext in Unreal Engine include:
+
+Input Actions: UInputMappingContext allows you to define input actions, which are high-level events triggered by user input.
+               Input actions can be mapped to specific keys or buttons on various input devices, and can be reused across multiple contexts.
+               
+Input Devices: UInputMappingContext supports a wide range of input devices, including keyboard, mouse, gamepad, touch screen, and more.
+               Input actions can be mapped to different devices and can be customized for different platforms and control schemes.
+
+Contextual Controls: UInputMappingContext allows you to define different sets of input actions for different contexts,
+                     such as menu navigation, gameplay, and vehicle control. 
+                     This allows you to create more intuitive and streamlined input experiences for your players.
+                     
+Customizable: UInputMappingContext is highly customizable and extensible, allowing you to add new input devices and control schemes,
+              define custom input actions, and more.
+              
+For more information about UInputMappingContext in Unreal Engine 5.1, you can refer to the official documentation on the Unreal Engine website:
+https://docs.unrealengine.com/5.1/en-US/API/Runtime/Engine/Input/UInputMappingContext/
+
+This documentation provides a detailed reference for the UInputMappingContext class and its various methods and properties, 
+as well as examples and best practices for using it in your projects.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Syntax and example:
+
+// Create a new input mapping context
+UInputMappingContext* MyInputContext = NewObject<UInputMappingContext>();
+
+// Define some input actions for the context
+MyInputContext->AddActionMapping("Jump", EKeys::SpaceBar);
+MyInputContext->AddActionMapping("Fire", EKeys::LeftMouseButton);
+MyInputContext->AddActionMapping("Reload", EKeys::R);
+
+// Bind the input context to a player controller
+APlayerController* MyController = GetWorld()->GetFirstPlayerController();
+MyController->SetInputMappingContext(MyInputContext);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In this example, we create a new UInputMappingContext object and define three input actions for it: "Jump", "Fire", and "Reload".
+We map these actions to specific keys on the keyboard and mouse using the AddActionMapping method.
+
+Finally, we bind the input context to a player controller using the SetInputMappingContext method. 
+This ensures that the input actions defined in the context are available to the player controller and can be used to trigger gameplay events.
+
+This is just a basic example, but UInputMappingContext is a powerful and flexible class that can be used 
+in many different ways to manage input actionsand control schemes in your game.
+
+
+
