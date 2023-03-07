@@ -1,0 +1,39 @@
+Project: A project is the main container for all of the assets, settings, and code that make up a game or application in Unreal Engine.
+
+Blueprint: A Blueprint is a visual scripting system in Unreal Engine that allows developers to create gameplay elements without writing any code.
+
+Object: An object is a data structure that represents a single instance of a class. It contains data and functionality that can be accessed and manipulated in the game world.
+
+Class: A class is a blueprint for creating objects. It defines the data and functionality that an object will have.
+
+Actor: An actor is a type of object that can be placed in the game world and can be seen, heard, and interacted with by players.
+
+Casting: Casting is the process of converting one data type to another. In Unreal Engine, casting is often used to convert an object to a different class.
+
+Component: A component is a self-contained piece of functionality that can be added to an Actor. Examples of components include cameras, particle systems, and physics bodies.
+
+Pawn: A pawn is a type of Actor that represents a player or AI-controlled character in the game world.
+
+Character: A character is a type of Pawn that has a humanoid shape and is designed to represent a player or AI-controlled character.
+
+Player Controller: A Player Controller is a type of Controller that represents the input and view control of a player.
+
+AI Controller: An AI Controller is a type of Controller that controls the behavior of AI-controlled characters in the game world.
+
+Player State: A Player State is a type of object that stores data about a player, such as their score or health.
+
+Game Mode: A Game Mode is a type of object that defines the rules and settings for a particular game mode, such as deathmatch or capture the flag.
+
+Game State: A Game State is a type of object that stores data about the current state of the game, such as the score and game time.
+
+Brush: A brush is a 3D volume that can be used to create simple shapes such as cubes or spheres in the game world.
+
+Volume: A volume is a 3D space in the game world that can be used to trigger events or apply effects, such as fog or sound.
+
+Level: A level is a defined area of the game world where gameplay takes place. A level can be thought of as a stage or a scene in a movie.
+
+World: A world is the entire game world, including all levels and assets that make up the game.
+
+
+For get more details and information follow the below link:
+https://docs.unrealengine.com/5.1/en-US/unreal-engine-terminology/
