@@ -1,0 +1,45 @@
+Module	EnhancedInput
+Header	/Engine/Plugins/Experimental/EnhancedInput/Source/EnhancedInput/Public/EnhancedInputSubsystems.h
+Include	#include "EnhancedInputSubsystems.h"
+
+
+UEnhancedInputLocalPlayerSubsystem is a subsystem class in Unreal Engine that provides an interface for managing input bindings at the local player level. 
+It is primarily used to customize input behavior for specific players or player controllers within a game.
+
+Here's a breakdown of some of the key features and functions of UEnhancedInputLocalPlayerSubsystem:
+
+Input Bindings    : UEnhancedInputLocalPlayerSubsystem allows you to set up custom input bindings for specific local players or player controllers.
+                    This can be useful for implementing player-specific control schemes or remapping inputs on a per-player basis.
+
+Input Processing  : The subsystem also provides a way to customize the way that input is processed for specific players or controllers. 
+                    This can be used to implement things like custom input response curves or deadzones.
+
+Event Handling    : UEnhancedInputLocalPlayerSubsystem includes a number of built-in events that can be triggered when specific input actions occur.
+                    This can be useful for implementing complex input behaviors or responding to specific input events.
+
+An example of how you might use UEnhancedInputLocalPlayerSubsystem in Unreal Engine scripting:
+
+// Get the local player subsystem
+UEnhancedInputLocalPlayerSubsystem* InputSubsystem = GetLocalPlayer()->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>();
+
+// Set up a custom input binding for the "Jump" action
+FInputActionBinding JumpBinding("Jump");
+JumpBinding.ActionDelegate.BindDelegate(this, &AMyCharacter::Jump);
+InputSubsystem->AddActionBinding(JumpBinding);
+
+// Customize input processing for the local player
+InputSubsystem->SetAnalogInputProcessorFunction(
+    [this](const FAnalogInputEvent& InputEvent, float RawValue, float& OutValue) -> bool
+    {
+        // Custom input processing code here
+        return true;
+    }
+);
+
+In this example, we first retrieve the local player's instance of UEnhancedInputLocalPlayerSubsystem. 
+We then set up a custom input binding for the "Jump" action using the AddActionBinding function, which takes an FInputActionBinding struct as its argument.
+Finally, we customize the input processing behavior for the local player using the SetAnalogInputProcessorFunction function.
+
+Here's the link to the Unreal Engine 5.1 documentation on UEnhancedInputLocalPlayerSubsystem:
+https://docs.unrealengine.com/5.1/en-US/API/Runtime/Input/EnhancedInput/UEnhancedInputLocalPlayerSubsystem/
+
