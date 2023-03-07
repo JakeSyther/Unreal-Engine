@@ -1,0 +1,35 @@
+APlayerController is a class in Unreal Engine (UE) that represents a player's connection to the game world. 
+It controls the player's input, camera, and interactions with the game world.
+
+In Unrael Engine, APlayerController is located in the Engine/Source/Runtime/Engine/Classes/GameFramework/ directory.
+It is a child class of AController and a parent class of AAIController.
+
+An example of using APlayerController could be to set up input bindings for a player's gamepad or keyboard. 
+You can create a new function in the APlayerController class that handles the input and then bind it to a specific key or button press in the project settings.
+
+An example of a function that moves the player forward when the W key is pressed:
+
+-------------------------------------------------------------------------------------
+(C++)
+void AMyPlayerController::MoveForward(float Value)
+{
+    if (Value != 0.0f)
+    {
+        FVector Direction = GetActorForwardVector();
+        AddMovementInput(Direction, Value);
+    }
+}
+-------------------------------------------------------------------------------------
+Then, in the project settings, you can bind the W key to this function:
+
+------------------------------------------------------------------------------------------------
+ActionMappings=(ActionName="MoveForward",Key=W,bShift=False,bCtrl=False,bAlt=False,bCmd=False)
+------------------------------------------------------------------------------------------------
+Here, "MoveForward" is the name of the function we created and "W" is the key we want to bind it to.
+
+For more information on "APlayerController", you can refer to the official UE documentation:
+https://docs.unrealengine.com/5.1/en-US/API/Runtime/Engine/GameFramework/APlayerController/
+
+It's always a good idea to familiarize yourself with UE's class hierarchy and documentation before diving into coding. 
+It can save you a lot of time and headaches in the long run.
+Additionally, it's important to keep your code organized and well-documented so that other developers can easily understand and work with it.
