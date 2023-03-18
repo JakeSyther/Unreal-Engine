@@ -1,0 +1,22 @@
+* Adding a new enemy to an array of enemies:
+
+TArray<AEnemy*> Enemies;
+AEnemy* NewEnemy = SpawnEnemy(); // Assume SpawnEnemy() returns a pointer to a new enemy
+Enemies.Add(NewEnemy);
+
+
+* Adding a new item to a player's inventory:
+
+TArray<AItem*> Inventory;
+AItem* NewItem = SpawnItem(); // Assume SpawnItem() returns a pointer to a new item
+Inventory.Add(NewItem);
+
+* Adding a new projectile to an array of projectiles:
+
+TArray<AProjectile*> Projectiles;
+AProjectile* NewProjectile = SpawnProjectile(); // Assume SpawnProjectile() returns a pointer to a new projectile
+Projectiles.Add(NewProjectile);
+
+
+In each of these examples, Add() is used to add a new element (an enemy, an item, or a projectile) to the corresponding array.
+The * symbol in AEnemy*, AItem*, and AProjectile* indicates that these are pointers to objects of the corresponding class.
