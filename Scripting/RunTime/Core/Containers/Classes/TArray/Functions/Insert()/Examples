@@ -1,0 +1,25 @@
+* Inserting a new enemy at a specific index in an array of enemies:
+
+TArray<AEnemy*> Enemies;
+AEnemy* NewEnemy = SpawnEnemy(); // Assume SpawnEnemy() returns a pointer to a new enemy
+int32 InsertIndex = FindInsertIndex(); // Assume FindInsertIndex() returns the index at which to insert the new enemy
+Enemies.Insert(NewEnemy, InsertIndex);
+
+
+* Inserting a new item at a specific index in a player's inventory:
+
+TArray<AItem*> Inventory;
+AItem* NewItem = SpawnItem(); // Assume SpawnItem() returns a pointer to a new item
+int32 InsertIndex = FindInsertIndex(); // Assume FindInsertIndex() returns the index at which to insert the new item
+Inventory.Insert(NewItem, InsertIndex);
+
+
+* Inserting a new projectile at a specific index in an array of projectiles:
+
+TArray<AProjectile*> Projectiles;
+AProjectile* NewProjectile = SpawnProjectile(); // Assume SpawnProjectile() returns a pointer to a new projectile
+int32 InsertIndex = FindInsertIndex(); // Assume FindInsertIndex() returns the index at which to insert the new projectile
+Projectiles.Insert(NewProjectile, InsertIndex);
+In each of these examples, Insert() is used to insert a new element (an enemy, an item, or a projectile) at a specific index in the corresponding array.
+The * symbol in AEnemy*, AItem*, and AProjectile* indicates that these are pointers to objects of the corresponding class. 
+The int32 type is used to specify the index at which to insert the new element.
