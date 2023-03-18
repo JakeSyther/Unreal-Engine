@@ -1,0 +1,26 @@
+* Removing a defeated enemy from an array of enemies:
+
+TArray<AEnemy*> Enemies;
+AEnemy* EnemyToDestroy = FindDefeatedEnemy(); // Assume FindDefeatedEnemy() returns a pointer to the defeated enemy
+Enemies.Remove(EnemyToDestroy);
+EnemyToDestroy->Destroy(); // Clean up the memory used by the destroyed enemy
+
+
+* Removing an item from a player's inventory:
+
+TArray<AItem*> Inventory;
+AItem* ItemToRemove = FindItemToRemove(); // Assume FindItemToRemove() returns a pointer to the item to remove
+Inventory.Remove(ItemToRemove);
+ItemToRemove->Destroy(); // Clean up the memory used by the removed item
+
+
+* Removing a projectile that has collided with an object:
+
+TArray<AProjectile*> Projectiles;
+AProjectile* ProjectileToDestroy = FindCollidedProjectile(); // Assume FindCollidedProjectile() returns a pointer to the collided projectile
+Projectiles.Remove(ProjectileToDestroy);
+ProjectileToDestroy->Destroy(); // Clean up the memory used by the destroyed projectile
+
+
+In each of these examples, Remove() is used to remove an element (an enemy, an item, or a projectile) from the corresponding array.
+The * symbol in AEnemy*, AItem*, and AProjectile* indicates that these are pointers to objects of the corresponding class.
