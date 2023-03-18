@@ -1,0 +1,51 @@
+"Templated dynamic array"
+
+TArray is a templated dynamic array class in Unreal Engine that provides a flexible and efficient way to store and manipulate collections of elements of the same type.
+It is commonly used for storing and manipulating data in game development, such as storing the positions of game objects or managing a player's inventory.
+
+To use TArray, you need to declare an instance of the class and specify the type of element that you want to store.
+
+
+
+Here's an example:
+
+TArray<int> MyIntArray;
+
+In this example, we have declared an instance of TArray called MyIntArray that stores integer values.
+
+TArray provides a number of useful functions for adding, removing, and manipulating elements in the array. 
+
+
+
+Here are some examples:
+
+Add() - adds a new element to the end of the array.
+MyIntArray.Add(5);
+
+
+Remove() - removes an element from the array by its index.
+MyIntArray.Remove(2); // Removes the element at index 2
+
+Insert() - inserts a new element at a specific index in the array.
+MyIntArray.Insert(10, 2); // Inserts the value 10 at index 2
+
+
+Find() - searches the array for a specific element and returns its index.
+int Index = MyIntArray.Find(5); // Returns the index of the first occurrence of the value 5
+
+
+Sort() - sorts the elements in the array in ascending order
+MyIntArray.Sort();
+
+
+Num() - returns the number of elements in the array.
+int NumElements = MyIntArray.Num();
+
+TArray also provides a variety of functions for manipulating the array's memory allocation, 
+such as Reserve() to preallocate memory for a certain number of elements, and Shrink() to release any unused memory.
+
+One important thing to note about TArray is that it is a dynamic array, which means that its size can be changed at runtime. 
+However, this flexibility comes at the cost of performance, as resizing the array can be an expensive operation.
+To avoid unnecessary memory reallocations and improve performance, it is a good practice to preallocate the array's memory using the Reserve() 
+function if you know the maximum number of elements that the array will need to store.
+
