@@ -1,0 +1,54 @@
+* Finding the nearest enemy to the player:
+
+TArray<AEnemy*> Enemies;
+AEnemy* NearestEnemy = nullptr;
+float NearestDistanceSquared = MAX_FLT;
+for (AEnemy* Enemy : Enemies)
+{
+    float DistanceSquared = (Enemy->GetActorLocation() - Player->GetActorLocation()).SizeSquared();
+    if (DistanceSquared < NearestDistanceSquared)
+    {
+        NearestEnemy = Enemy;
+        NearestDistanceSquared = DistanceSquared;
+    }
+}
+
+
+In this example, Find() is not used directly, but rather a custom algorithm is used to iterate through the array of enemies and find the one closest to the player.
+The * symbol in AEnemy* indicates that these are pointers to objects of the AEnemy class, and MAX_FLT is a constant that represents 
+the maximum value of a floating point number.
+
+
+
+* Finding a specific item in a player's inventory:
+
+TArray<AItem*> Inventory;
+AItem* FoundItem = Inventory.FindByPredicate([](const AItem* Item) {
+    return Item->GetName() == "Key"; // Assume there is an item named "Key"
+});
+if (FoundItem)
+{
+    // Use the found item
+}
+In this example, Find() is used with a predicate function to search the array of items for one with a specific name. 
+The [] syntax is used to define a lambda function that takes a const pointer to an AItem object, and returns a boolean value indicating whether
+the item's name matches the desired name. If a matching item is found, a pointer to it is returned and stored in FoundItem. If no matching item is found, 
+FoundItem will be nullptr.
+
+
+* Finding a projectile that has collided with an object:
+
+TArray<AProjectile*> Projectiles;
+AProjectile* CollidedProjectile = Projectiles.FindByPredicate([](const AProjectile* Projectile) {
+    return Projectile->HasCollided(); // Assume AProjectile has a HasCollided() function
+});
+if (CollidedProjectile)
+{
+    // Handle the collided projectile
+}
+
+In this example, Find() is used with a predicate function to search the array of projectiles for one that has collided with another object. 
+The [] syntax is used to define a lambda function that takes a const pointer to an AProjectile object,
+and returns a boolean value indicating whether the projectile has collided. If a matching projectile is found,
+a pointer to it is returned and stored in CollidedProjectile. If no matching projectile is found, CollidedProjectile will be nullptr.
+
