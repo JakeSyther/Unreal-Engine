@@ -1,0 +1,125 @@
+Introduction :
+
+Unreal Engine is a popular game development engine that uses C++ as its primary programming language. 
+In order to optimize the performance of games and other applications built using Unreal Engine,
+developers need to make use of various techniques to minimize the amount of time spent on processing and memory allocation.
+One such technique is to use inlining, which can significantly reduce the overhead associated with function calls.
+
+In Unreal Engine, the "FORCEINLINE" macro is used to suggest to the compiler that a particular function should be inlined. 
+In this article, we'll discuss what inlining is, why it's important for game development, and how the FORCEINLINE macro works in Unreal Engine. 
+We'll also provide some examples to illustrate how the FORCEINLINE macro can be used in practice.
+
+What is inlining?
+
+Inlining is a technique used by compilers to optimize code by replacing function calls with the actual code of the function. 
+When a function is inlined, the function call is replaced with the function body, which can reduce the overhead associated with function calls.
+Inlined functions are typically small, with a few lines of code, and are called frequently.
+
+Inlining can result in faster code execution, since there is no overhead associated with function calls. 
+However, inlining can also increase the size of the executable code, which can lead to increased memory usage.
+
+Why is inlining important for game development?
+
+Game development often involves writing code that needs to be executed in real time. 
+This means that developers need to be able to write code that is fast and efficient, while also being easy to read and maintain. 
+Inlining is an important technique for optimizing game code, since it can significantly reduce the overhead associated with function calls.
+
+By using the FORCEINLINE macro in Unreal Engine, developers can suggest to the compiler that a particular function should be inlined. 
+This can result in faster code execution, which is important for games that need to render graphics, simulate physics, and handle player input in real time.
+
+How does the FORCEINLINE macro work?
+
+The FORCEINLINE macro is used to suggest to the compiler that a particular function should be inlined. 
+When a function is declared using the FORCEINLINE macro, the compiler will attempt to inline the function whenever it is called.
+
+
+
+
+Here's an example of how the FORCEINLINE macro can be used in Unreal Engine:
+--------------------------------------------------------------------------
+FORCEINLINE float Square(float X)
+{
+    return X * X;
+}
+--------------------------------------------------------------------------
+In this example, the Square function is defined using the FORCEINLINE macro, which suggests to the compiler that the function should be inlined if possible. 
+This can result in faster code execution when the Square function is called.
+
+Best practices for using the FORCEINLINE macro
+Here are some best practices for using the FORCEINLINE macro in Unreal Engine:
+
+Use the FORCEINLINE macro only for small functions that are called frequently.
+Large functions are unlikely to benefit from inlining and may result in increased code size.
+Don't use the FORCEINLINE macro for functions with complex control flow or error handling.
+Inlining these functions may result in increased code size and reduced performance.
+Use the FORCEINLINE macro sparingly. Overuse of the FORCEINLINE macro can result in increased code size and decreased maintainability.
+
+Example usage
+--------------------------------------------------------------------------------------------------
+// MyActor.h
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "MyActor.generated.h"
+
+UCLASS()
+class AMyActor : public AActor
+{
+	GENERATED_BODY()
+
+public:
+	AMyActor();
+
+protected:
+	virtual void BeginPlay() override;
+
+private:
+	FORCEINLINE float CalculateDamage(float BaseDamage, float Armor) const;
+};
+--------------------------------------------------------------------------------------------------
+
+
+In this example, we have a custom actor class AMyActor, which has a private function CalculateDamage. 
+We have defined the CalculateDamage function using the FORCEINLINE macro, which suggests to the compiler that this function should be inlined whenever it is called.
+
+By inlining the CalculateDamage function, we can reduce the overhead associated with function calls and improve the performance of our code. 
+This can be particularly useful in game development, where even small optimizations can make a big difference in the overall performance of the game.
+
+Note that we have marked the CalculateDamage function as const, which means that it does not modify the state of the object.
+This is a good practice to follow when using the FORCEINLINE macro, as inlining a function that modifies the state of an object can result in unexpected behavior.
+
+
+
+Here's an example implementation of the CalculateDamage function:
+----------------------------------------------------------------------------------------------------
+// MyActor.cpp
+
+#include "MyActor.h"
+
+AMyActor::AMyActor()
+{
+}
+
+void AMyActor::BeginPlay()
+{
+    float BaseDamage = 100.f;
+    float Armor = 50.f;
+    float DamageDealt = CalculateDamage(BaseDamage, Armor);
+    UE_LOG(LogTemp, Warning, TEXT("Damage dealt: %f"), DamageDealt);
+}
+
+FORCEINLINE float AMyActor::CalculateDamage(float BaseDamage, float Armor) const
+{
+    float DamageMultiplier = FMath::Max(0.f, 1.f - Armor / 100.f);
+    return BaseDamage * DamageMultiplier;
+}
+----------------------------------------------------------------------------------------------------
+
+In this implementation, we use the CalculateDamage function to calculate the amount of damage dealt to an object, based on a base damage value and an armor value. 
+The CalculateDamage function uses the FMath::Max function to ensure that the damage multiplier is always at least 0, 
+and then returns the product of the base damage and the damage multiplier.
+
+By inlining the CalculateDamage function, we can avoid the overhead associated with function calls and improve the performance of our code.
+This can be particularly useful in game development, where performance is critical to a smooth player experience.
