@@ -22,19 +22,70 @@ how it should be serialized, and whether it should be replicated across the netw
 
 Some of the commonly used static macros in Unreal Engine:
 
-UCLASS()                             - Used to define a class that can be used in the Unreal Editor and can be instantiated in-game.
-UFUNCTION()                          - Used to define a function that can be called from UnrealScript or Blueprints.
-UPROPERTY()                          - Used to declare a property that can be edited in the Unreal Editor.
-UENUM()                              - Used to define an enumeration that can be used in UnrealScript or Blueprints.
-USTRUCT()                            - Used to define a custom structure that can be used in UnrealScript or Blueprints.
-DECLARE_EVENT()                      - Used to declare an event that can be broadcast and bound to from Blueprint.
-DECLARE_INTERFACE()                  - Used to declare an interface that can be implemented by classes.
-DECLARE_LOG_CATEGORY_EXTERN()        - Used to declare a log category that can be used for logging.
-DECLARE_DYNAMIC_MULTICAST_DELEGATE() - Used to declare a multicast delegate that can be bound to and invoked from Blueprint.
+UCLASS                        : Used to define a new UObject-derived class.
+USTRUCT                       : Used to define a new struct.
+UENUM                         : Used to define a new enumeration.
+UPROPERTY                     : Used to declare a property of a UObject-derived class.
+UFUNCTION                     : Used to declare a function of a UObject-derived class.
+UINTERFACE                    : Used to define a new interface.
+UMETA                         : Used to provide additional metadata for a UPROPERTY or UFUNCTION declaration.
+GENERATED_BODY                : Used to automatically generate the implementation of a UCLASS, USTRUCT, or ENUM.
+FORCEINLINE                   : Used to suggest to the compiler that a function should be inlined whenever it is called.
+PURE_VIRTUAL                  : Used to declare a pure virtual function that must be implemented in derived classes.
+DECLARE_DYNAMIC_*             : A family of macros used to declare various types of dynamic functions and properties.
+DECLARE_EVENT                 : Used to declare a delegate as an event.
+DECLARE_DELEGATE              : Used to declare a delegate.
+DECLARE_DYNAMIC_DELEGATE_*    : A family of macros used to declare various types of dynamic delegates.
+IMPLEMENT_PRIMARY_GAME_MODULE : Used to implement a primary game module.
+IMPLEMENT_MODULE              : Used to implement a secondary game module.
+TEXT                          : Used to create a string literal that can be localized.
+LOCTEXT                       : Used to create a localized text literal.
+NSLOCTEXT                     : Used to create a namespaced localized text literal.
+TCHAR_TO_*                    : A family of macros used to convert between TCHAR strings and other string types.
+FSTRING_*                     : A family of functions used to manipulate FString objects.
+ENUM_CLASS_FLAGS              : Used to define a set of flags for a particular enumeration.
+TARRAY                        : A template class used to store a dynamic array of objects.
+TMAP                          : A template class used to store a dynamic map of key-value pairs.
+TSET                          : A template class used to store a dynamic set of objects.
+UE_LOG                        : Used to print a log message.
+UE_DEBUG_BREAK                : Used to break into the debugger at a specific location.
+CHECK                         : Used to check a condition and log an error if the condition is not met.
+CHECK_*                       : A family of macros used to perform various types of checks, such as CHECK_EQUAL, CHECK_NOTNULL, and CHECK_NO_FATAL_ERRORS.
+VERIFY                        : Used to check a condition and log a fatal error if the condition is not met.
+VERIFY_*                      : A family of macros used to perform various types of verifications, such as VERIFY_EQUAL, VERIFY_NOTNULL, and VERIFY_NO_FATAL_ERRORS.
+
+UE_BUILD_DEBUG                : A preprocessor define that is true when building a debug version of the game.
+UE_BUILD_DEVELOPMENT          : A preprocessor define that is true when building a development version of the game.
+UE_BUILD_SHIPPING             : A preprocessor define that is true when building a shipping version of the game.
+UE_EDITOR                     : A preprocessor define that is true when running in the Unreal Editor.
+
+WITH_EDITOR                   : A preprocessor define that is true when building with the Unreal Editor.
+WITH_ENGINE                   : A preprocessor define that is true when building with the Unreal Engine.
+WITH_EDITORONLY_DATA          : A preprocessor define that is true when building with editor-only data.
+WITH_SERVER_CODE              : A preprocessor define that is true when building server-side code.
+WITH_AUTOMATION_WORKER        : A preprocessor define that is true when building with the automation worker.
+
+PLATFORM_                     : A family of preprocessor defines that specify the current platform, such as PLATFORM_WINDOWS, PLATFORM_MAC, and PLATFORM_LINUX.
+DEFINE_LOG_CATEGORY_STATIC    : Used to define a static log category.
+
+FName                         : Used to declare a name object.
+FText                         : Used to declare a text object.
+FTransform                    : Used to declare a transform object.
+FRotator                      : Used to declare a rotation object.
+FVector                       : Used to declare a vector object.
+FQuat                         : Used to declare a quaternion object.
+FColor                        : Used to declare a color object.
+FLatentActionInfo             : Used to define a latent action.
+UDELEGATE                     : Used to declare a delegate.
+DECLARE_FUNCTION              : Used to declare a function in a UObject-derived class.
+DECLARE_MULTICAST_DELEGATE    : Used to declare a multicast delegate.
+DECLARE_DYNAMIC_*             : A family of macros used to declare various types of dynamic functions and properties.
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE: Used to declare a dynamic multicast delegate.
+DEFINE_DYNAMIC_MULTICAST_DELEGATE: Used to define a dynamic multicast delegate.
 
 These are just a few examples of the many static macros used in Unreal Engine. 
 Each macro has a specific purpose and usage, and they are all designed to make development easier and more efficient.
-
 
 Unreal Engine documentation page on macros: https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/Reference/CppProgrammingBasics/Macros/index.html
 This page provides more detailed information on the various macros used in Unreal Engine, including examples of how to use them and their specific functionalities.
