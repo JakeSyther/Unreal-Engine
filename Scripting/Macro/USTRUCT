@@ -37,14 +37,15 @@ Once you've defined a struct, you can use it in your code by declaring variables
 
 
 Here's an example:
---------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------
 FMyStruct MyStruct;
 MyStruct.MyInt = 42;
 MyStruct.MyString = "Hello, world!";
+-------------------------------------------
 In this example, we're declaring a variable called MyStruct of type FMyStruct, and setting its properties to 42 and "Hello, world!".
---------------------------------------------------------------------------------------------------------------------------------------------------------
-You can also pass structs as function parameters and return values:
 
+
+You can also pass structs as function parameters and return values:
 ----------------------------------------------------------------------------
 FMyStruct MyFunction()
 {
@@ -94,6 +95,3 @@ Conclusion
 In this article, we've covered the USTRUCT macro in Unreal Engine C++, including how to define and use structs, and how to specify their properties. 
 Structs are an important part of game development, and can be used to define custom data types that are used throughout your game.
 By using the USTRUCT macro, you can easily define and work with custom structs in your Unreal Engine C++ code.
-
-
-
