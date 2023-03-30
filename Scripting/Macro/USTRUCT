@@ -1,0 +1,99 @@
+Introduction
+In Unreal Engine C++, the USTRUCT macro is used to define custom structs, which are similar to classes but are used to store data rather than execute code.
+Structs can be used to define data types that are used throughout your game, such as item data, character stats, and more.
+
+In this article, we'll cover everything you need to know about the USTRUCT macro, including how to define and use structs, and how to specify their properties.
+
+Defining a Struct
+To define a struct in Unreal Engine C++, you'll need to use the USTRUCT macro. 
+
+
+
+Here's a basic example:
+----------------------------------------------------------------------------
+USTRUCT(BlueprintType)
+struct FMyStruct
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MyStruct")
+    int32 MyInt;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MyStruct")
+    FString MyString;
+};
+----------------------------------------------------------------------------
+In this example, we're defining a struct called FMyStruct, which contains two properties, MyInt and MyString.
+The UPROPERTY macro is used to specify that these properties should be editable in the editor and accessible from Blueprint code.
+
+The EditAnywhere parameter means that the properties can be edited in any editor,
+while the BlueprintReadWrite parameter specifies that they can be read and written to from Blueprint code.
+The Category parameter is used to group the properties in the editor, making it easier to find them.
+
+The GENERATED_BODY macro is required for all structs, and is used to generate boilerplate code that Unreal Engine needs to work with the struct.
+
+Using a Struct
+Once you've defined a struct, you can use it in your code by declaring variables of that type.
+
+
+Here's an example:
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+FMyStruct MyStruct;
+MyStruct.MyInt = 42;
+MyStruct.MyString = "Hello, world!";
+In this example, we're declaring a variable called MyStruct of type FMyStruct, and setting its properties to 42 and "Hello, world!".
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+You can also pass structs as function parameters and return values:
+
+----------------------------------------------------------------------------
+FMyStruct MyFunction()
+{
+    FMyStruct MyStruct;
+    MyStruct.MyInt = 42;
+    MyStruct.MyString = "Hello, world!";
+    return MyStruct;
+}
+
+void MyOtherFunction(FMyStruct InStruct)
+{
+    // Do something with InStruct...
+}
+
+----------------------------------------------------------------------------
+In this example, we're defining a function called MyFunction that returns a struct of type FMyStruct. 
+We're also defining a function called MyOtherFunction that takes a struct of type FMyStruct as a parameter.
+
+Specifying Struct Properties
+In addition to the UPROPERTY macro, there are other macros you can use to specify properties of a struct.
+
+USTRUCT(BlueprintType)
+The BlueprintType parameter of the USTRUCT macro specifies that the struct can be used in Blueprint code. 
+This means that the properties of the struct can be edited and accessed from Blueprint code.
+
+USTRUCT(meta = (MyMeta = "MyValue"))
+The meta parameter of the USTRUCT macro can be used to specify metadata for the struct.
+This metadata is a key-value pair that can be accessed from Blueprint code using the GetMetaData function.
+The key is a string that identifies the metadata, and the value is any type that can be stored as a string.
+
+
+Here's an example of how to use the meta parameter:
+----------------------------------------------------------------------------
+USTRUCT(BlueprintType, meta=(MyMeta="MyValue"))
+struct FMyStruct
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MyStruct")
+    FString MyString;
+};
+----------------------------------------------------------------------------
+
+
+
+Conclusion
+In this article, we've covered the USTRUCT macro in Unreal Engine C++, including how to define and use structs, and how to specify their properties. 
+Structs are an important part of game development, and can be used to define custom data types that are used throughout your game.
+By using the USTRUCT macro, you can easily define and work with custom structs in your Unreal Engine C++ code.
+
+
+
