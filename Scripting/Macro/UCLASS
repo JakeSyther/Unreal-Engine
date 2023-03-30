@@ -1,0 +1,121 @@
+What is the UCLASS macro?
+
+The UCLASS macro is used in Unreal Engine C++ to declare a new UObject-derived class.
+It is a key tool for creating custom game classes, which can be used to define game objects, characters, weapons, and more.
+
+By using the UCLASS macro, developers can define the behavior, properties, and functionality of their custom game classes. 
+This includes specifying the parent class, defining properties and functions, and even specifying editor settings.
+
+Syntax of the UCLASS macro
+
+The UCLASS macro has a few different syntax options, depending on the needs of the developer. 
+
+
+Here is the basic syntax:
+---------------------------------------------------------------
+UCLASS()
+class MyCustomClass : public UObject
+{
+    GENERATED_BODY()
+
+public:
+    // Properties, functions, and other class members here.
+};
+---------------------------------------------------------------
+Let's break down each of the components of this syntax:
+
+UCLASS()           : This is the macro itself, which is used to declare the class as a UObject-derived class.
+class MyCustomClass: This is the name of the new class, which should be written in CamelCase.
+: public UObject   : This is the parent class, which the new class will inherit from.
+GENERATED_BODY()   : This is a macro that will be expanded by the Unreal Build Tool (UBT) to include a lot of boilerplate code required
+                     for Unreal Engine to properly manage the class.
+public:            : This specifies that the following class members are public, meaning they can be accessed from anywhere in the code.
+
+Examples of using the UCLASS macro
+Let's take a look at a few examples of using the UCLASS macro in Unreal Engine C++:
+
+
+Example 1: Defining a basic actor class
+----------------------------------------------------------------------------
+UCLASS()
+class AMyActor : public AActor
+{
+    GENERATED_BODY()
+
+public:
+    AMyActor();
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MyActor")
+    float MyFloat;
+
+    UFUNCTION(BlueprintCallable, Category = "MyActor")
+    void MyFunction();
+};
+----------------------------------------------------------------------------
+
+In this example, we are defining a new actor class called AMyActor.
+It inherits from the AActor class, and defines a float property called MyFloat, as well as a function called MyFunction.
+
+The UPROPERTY macro is used to define the MyFloat property, with several parameters.
+The EditAnywhere parameter means that the property can be edited in the editor,
+the BlueprintReadWrite parameter means that it can be accessed from Blueprint code,
+and the Category parameter is used to group properties in the editor for easier organization.
+
+The UFUNCTION macro is used to define the MyFunction function, with similar parameters.
+The BlueprintCallable parameter means that the function can be called from Blueprint code, and the Category parameter is used to group functions in the editor.
+
+Example 2: Defining a custom struct
+-------------------------------------------------------------------------------------
+USTRUCT(BlueprintType)
+struct FMyCustomStruct
+{
+    GENERATED_BODY()
+
+public:
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MyCustomStruct")
+    FString MyString;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MyCustomStruct")
+    int32 MyInt;
+};
+-------------------------------------------------------------------------------------
+
+In this example, we are defining a new struct called FMyCustomStruct.
+We use the USTRUCT macro to declare it as a struct, and the BlueprintType parameter means that it can be used in Blueprint code as well.
+
+The struct defines two properties, MyString and MyInt, which are both editable in the editor and accessible from Blueprint code.
+
+
+
+Example 3: Specifying editor settings
+-----------------------------------------------------------------------------------------------------------------------------------------------
+UCLASS()
+class AMyActor : public AActor
+{
+    GENERATED_BODY()
+
+public:
+    AMyActor();
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MyActor", meta = (ToolTip = "This is a tooltip!"))
+    float MyFloat;
+
+    UFUNCTION(BlueprintCallable, Category = "MyActor", meta = (Keywords = "My Actor"))
+    void MyFunction();
+};
+-----------------------------------------------------------------------------------------------------------------------------------------------
+In this example, we are using the meta parameter of the UPROPERTY and UFUNCTION macros to specify editor settings. 
+The ToolTip parameter adds a tooltip to the MyFloat property, which will be displayed in the editor when the user hovers over the property.
+
+The Keywords parameter adds keywords to the MyFunction function, which can be used to search for the function in the editor.
+
+Conclusion
+In this article, we've covered everything you need to know about the UCLASS macro in Unreal Engine C++.
+We've seen how it can be used to define custom game classes, specify parent classes, and define properties and functions.
+
+We've also seen examples of how to use the UPROPERTY and UFUNCTION macros to define properties and functions with different parameters,
+as well as how to specify editor settings with the meta parameter.
+
+By using the UCLASS macro effectively, developers can create custom game classes that are tailored to their specific game's needs,
+making for a more robust and enjoyable game development experience.
+
