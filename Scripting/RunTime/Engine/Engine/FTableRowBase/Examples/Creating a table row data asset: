@@ -1,7 +1,7 @@
 To create a table row data asset, you can use the custom table row class you created in the previous step. 
-
 Here's an example of how to create a new asset and set its data:
 
+------------------------------------------------------------------------------------------------------------------------------------------
 // Create a new character ability data asset
 UDataTable* CharacterAbilitiesDataTable = NewObject<UDataTable>();
 CharacterAbilitiesDataTable->RowStruct = FCharacterAbilityTableRow::StaticStruct();
@@ -15,6 +15,7 @@ NewRow.CooldownTime = 10.0f;
 
 // Add the new row to the data table
 CharacterAbilitiesDataTable->AddRow("Fireball", NewRow);
+------------------------------------------------------------------------------------------------------------------------------------------
 
 In this example, we're creating a new table row data asset for character abilities.
 We're using the custom table row class we defined earlier, and we're setting the data for a new ability called "Fireball".
