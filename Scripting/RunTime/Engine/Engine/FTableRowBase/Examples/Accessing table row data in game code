@@ -1,0 +1,21 @@
+Once you've created a table row data asset, you can access its data in game code using the UDataTable class.
+Here's an example of how to access the data for a specific character ability:
+
+------------------------------------------------------------------------------------------------------------------------------------------
+// Get a reference to the character abilities data table
+UDataTable* CharacterAbilitiesDataTable = LoadObject<UDataTable>(nullptr, TEXT("/Game/DataTables/CharacterAbilities"));
+
+// Get the row data for the "Fireball" ability
+FCharacterAbilityTableRow* FireballData = CharacterAbilitiesDataTable->FindRow<FCharacterAbilityTableRow>("Fireball", "");
+
+// Use the data to perform an action
+if (FireballData)
+{
+	// Use the Fireball ability
+	DoAbility(FireballData->Name, FireballData->Damage, FireballData->CooldownTime);
+}
+------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we're getting a reference to the table row data asset for character abilities that we created earlier.
+We're then getting the row data for the "Fireball" ability and using it to perform an action (in this case, using the ability). 
+Note that we're using the FindRow function to get the row data, and we're specifying the row name as the first argument.
