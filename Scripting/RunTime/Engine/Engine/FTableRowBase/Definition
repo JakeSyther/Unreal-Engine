@@ -1,0 +1,29 @@
+FTableRowBase is a class in Unreal Engine C++ that is used to define structured data for use in table row data assets.
+These assets are commonly used in game development to store configuration data, level data, and user interface data.
+
+FTableRowBase is an abstract base class, meaning it cannot be directly instantiated. 
+Instead, it is designed to be subclassed to create custom table row classes that define structured data for a specific purpose. 
+These subclasses can define their own data members and methods to provide functionality specific to the table row data they represent.
+
+The FTableRowBase class provides several functions and members that are used to work with table row data assets. 
+
+These include:
+
+Serialize : This function serializes the data in the table row asset to and from disk. It is used to save and load table row data assets.
+
+RowName   : This member stores the name of the table row asset. It is used to identify the asset in the Unreal Editor's table view.
+
+IsStale   : This member indicates whether the table row asset has been modified since it was last saved.
+            It is used to determine whether the asset needs to be saved before the game is run.
+
+When creating a table row data asset, a custom subclass of FTableRowBase is used as the base class.
+The custom subclass defines the data members and default values for the table row data. 
+The data can then be edited in the Unreal Editor's table view, and the resulting asset can be used in the game code to access the structured data.
+
+FTableRowBase is commonly used in game development to store configuration data, such as settings for character abilities, weapon properties, and enemy behavior.
+It is also used to define structured level data, such as spawn points, objective locations, and enemy placement. 
+Additionally, FTableRowBase can be used to define data structures for user interface elements, such as menus and inventory screens.
+
+In summary, FTableRowBase is an abstract base class in Unreal Engine C++ that is used to define structured data for table row data assets. 
+It provides several functions and members for working with table row data assets, and is commonly used in game development to store configuration data, level data,
+and user interface data.
