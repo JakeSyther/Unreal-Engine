@@ -1,6 +1,7 @@
 To create a custom table row class, you can subclass FTableRowBase and define your own data members. 
 Here's an example:
 
+------------------------------------------------------------------------------------------------------------------------------------------
 // Custom table row class that defines a character ability
 USTRUCT(BlueprintType)
 struct FCharacterAbilityTableRow : public FTableRowBase
@@ -19,6 +20,7 @@ struct FCharacterAbilityTableRow : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Character Ability")
 	float CooldownTime;
 };
+------------------------------------------------------------------------------------------------------------------------------------------
 
 In this example, we're creating a custom table row class called FCharacterAbilityTableRow that defines data for a character ability.
 We've defined three data members: Name, Damage, and CooldownTime.
