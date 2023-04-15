@@ -1,0 +1,51 @@
+APlayerController::OnPossess is a function in Unreal Engine that is called when a player controller possesses a pawn.
+When a player controller takes control of a pawn, it becomes the "possessor" of that pawn, and OnPossess is called on the player controller.
+
+Here's an example of how OnPossess might be used in a game:
+
+------------------------------------------------------------------------------------------------------------------------------------
+                // MyPlayerController.h
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/PlayerController.h"
+#include "MyPlayerController.generated.h"
+
+UCLASS()
+class MYGAME_API AMyPlayerController : public APlayerController
+{
+    GENERATED_BODY()
+
+public:
+    virtual void OnPossess(APawn* InPawn) override;
+};
+
+
+
+
+                // MyPlayerController.cpp
+#include "MyPlayerController.h"
+#include "MyCharacter.h" // Assuming you have a custom character class called MyCharacter
+
+void AMyPlayerController::OnPossess(APawn* InPawn)
+{
+    Super::OnPossess(InPawn);
+
+    // Check if the possessed pawn is a MyCharacter
+    AMyCharacter* MyChar = Cast<AMyCharacter>(InPawn);
+    if (MyChar != nullptr)
+    {
+        // If it is, do something with it
+        MyChar->DoSomething();
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------
+In this example, we have a custom player controller class called AMyPlayerController. It inherits from APlayerController, and overrides the OnPossess function.
+
+In the OnPossess function, we call Super::OnPossess to perform any necessary setup that the parent class needs to do.
+
+Then, we check if the pawn that was just possessed is a MyCharacter (which is a custom character class we've created). 
+We do this by using the Cast function, which attempts to cast InPawn to an AMyCharacter.
+If the cast is successful, MyChar will be a pointer to the possessed pawn, and we can call functions on it.
+
+Finally, we call MyChar->DoSomething() to do some custom action on the possessed character.
