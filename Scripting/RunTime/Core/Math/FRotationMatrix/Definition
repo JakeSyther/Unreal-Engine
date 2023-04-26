@@ -1,0 +1,33 @@
+FRotationMatrix is a struct in Unreal Engine used to represent a rotation in 3D space. 
+It contains a 3x3 rotation matrix, which can be used to transform vectors or other objects that have a rotation.
+
+In mathematics, a rotation matrix is a matrix that is used to perform a rotation in 3D space.
+It is a special type of orthogonal matrix, which means that its columns and rows are orthonormal, i.e., 
+they are all unit vectors that are perpendicular to each other.
+
+In Unreal Engine, FRotationMatrix is often used to transform FVector and FQuat objects to apply rotations to them. 
+It provides functions to create rotation matrices from FQuat or FRotator objects, as well as to extract FQuat or FRotator from a rotation matrix.
+
+FRotationMatrix can be very useful when working with objects in 3D space, as it provides a way to easily apply
+rotations to objects and transform them in various ways.
+
+FRotator MyRotator(45.f, 90.f, 0.f);
+FMatrix MyMatrix = FRotationMatrix(MyRotator);
+
+In this example, we have a FRotator named MyRotator that represents a rotation of 45 degrees around the X axis, 
+90 degrees around the Y axis, and 0 degrees around the Z axis. 
+
+We then create a FMatrix named MyMatrix by using the FRotationMatrix constructor with MyRotator as the argument.
+This creates a 4x4 matrix that represents the same rotation as MyRotator.
+
+We can use this FMatrix for various transformations, such as rotating a FVector:
+
+FVector MyVector(1.f, 0.f, 0.f);
+MyVector = MyMatrix.TransformVector(MyVector);
+
+In this example, we have a FVector named MyVector that represents a point along the X axis. We then use the TransformVector 
+method of MyMatrix to rotate MyVector by the same rotation represented by MyRotator.
+The resulting vector MyVector will now be pointing in a new direction determined by the rotation.
+
+FRotationMatrix is a useful class for working with rotations in Unreal Engine.
+It allows you to create a matrix representation of a rotation, which can then be used to transform vectors or other matrices.
