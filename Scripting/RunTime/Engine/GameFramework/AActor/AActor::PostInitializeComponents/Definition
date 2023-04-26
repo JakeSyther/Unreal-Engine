@@ -1,0 +1,23 @@
+PostInitializeComponents() is a virtual function of the AActor class that is called after all of the actor's components have been created and initialized. 
+It is called during the actor's initialization process and can be overridden by derived classes to perform additional setup and initialization tasks.
+
+The purpose of PostInitializeComponents() is to provide a hook for actors to perform any additional setup and initialization tasks 
+that require the components to be fully initialized. 
+
+For example, an actor might use this function to set up references to other components, initialize component properties that depend on other components,
+or perform other tasks that require all components to be initialized.
+
+
+Example implementation of PostInitializeComponents() in C++:
+
+----------------------------------------------------------------
+void AMyActor::PostInitializeComponents()
+{
+    Super::PostInitializeComponents();
+
+    // Perform additional initialization tasks here...
+}
+----------------------------------------------------------------
+
+It is important to note that PostInitializeComponents() is called once during the actor's lifetime, after all of the components have been created and initialized.
+Therefore, any setup or initialization tasks that need to be performed every frame should be done in the Tick() function, rather than in PostInitializeComponents().
