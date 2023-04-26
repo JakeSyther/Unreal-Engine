@@ -1,0 +1,22 @@
+UPrimitiveComponent is a class in Unreal Engine that serves as a base class for components that represent a geometric shape that can collide with other objects. 
+It is a subclass of USceneComponent and is often used to create visual and physical representations of game objects in a scene.
+
+UPrimitiveComponent contains a variety of properties and functions that allow it to be customized and manipulated in a game.
+Some of its key properties include:
+
+CollisionEnabled        : determines whether the component will participate in collision detection.
+bGenerateOverlapEvents  : determines whether the component will generate overlap events when it overlaps with other components.
+bCastDynamicShadow      : determines whether the component will cast a dynamic shadow.
+BodyInstance            : defines the physical properties of the component, such as its mass and friction.
+
+UPrimitiveComponent also includes many functions that can be used to modify its behavior, such as:
+
+SetCollisionEnabled : sets the collision behavior of the component.
+SetMassScale        : scales the mass of the component by a given factor.
+SetSimulatePhysics  : enables or disables physics simulation for the component.
+
+In addition to its properties and functions, UPrimitiveComponent is also responsible for rendering its associated geometry.
+This is done by defining a set of vertices and triangles that make up the shape of the component, and using a material
+to apply textures and other visual effects to its surface.
+
+Overall, UPrimitiveComponent is a powerful and versatile class that is essential for creating dynamic and interactive game environments in Unreal Engine.
