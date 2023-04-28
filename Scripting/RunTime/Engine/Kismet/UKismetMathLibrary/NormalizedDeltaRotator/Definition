@@ -1,0 +1,29 @@
+NormalizedDeltaRotator that calculates the normalized delta rotation between two rotator values.
+
+A rotator in Unreal Engine is a data structure that represents a rotation in 3D space, consisting of three angles: pitch, yaw, and roll.
+The NormalizedDeltaRotator function takes two rotator values as input and calculates the difference between them as a new rotator value.
+The resulting rotator represents the rotation required to rotate from the first rotator to the second rotator in the shortest direction.
+
+The function returns the normalized delta rotator, which means that the resulting rotator has its angles constrained to the range of -180 to 180 degrees.
+This ensures that the resulting rotator represents the shortest possible rotation between the two input rotators.
+
+Here is the function signature for NormalizedDeltaRotator:
+
+FRotator UKismetMathLibrary::NormalizedDeltaRotator(const FRotator& A, const FRotator& B)
+
+
+Where A and B are the input rotator values. The function returns a new FRotator value representing the normalized delta rotation between A and B.
+
+
+
+Here is an example of how to use NormalizedDeltaRotator in code:
+
+FRotator CurrentRotation = GetActorRotation();
+FRotator TargetRotation = SomeOtherActor->GetActorRotation();
+
+FRotator DeltaRotation = UKismetMathLibrary::NormalizedDeltaRotator(CurrentRotation, TargetRotation);
+SetActorRotation(CurrentRotation + DeltaRotation);
+
+In this example, we first get the current rotation of an actor and the target rotation of another actor. 
+We then calculate the delta rotation required to rotate from the current rotation to the target rotation using NormalizedDeltaRotator.
+Finally, we add the delta rotation to the current rotation and set the actor's rotation to the result.
