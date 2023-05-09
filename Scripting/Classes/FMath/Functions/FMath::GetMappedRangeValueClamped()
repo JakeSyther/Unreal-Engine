@@ -1,0 +1,45 @@
+The FMath::GetMappedRangeValueClamped() function is a utility method provided by the FMath class in Unreal Engine.
+It is used to map a value from one range to another, while also clamping the result within a specified range.
+
+The function takes five parameters:
+
+1. Value: The input value that needs to be mapped to a new range.
+2. InRangeA: The minimum value of the input range.
+3. InRangeB: The maximum value of the input range.
+4. OutRangeA: The minimum value of the output range.
+5. OutRangeB: The maximum value of the output range.
+
+The purpose of GetMappedRangeValueClamped() is to take the Value and linearly map it from the input range (InRangeA to InRangeB) to the output range 
+(OutRangeA to OutRangeB), while ensuring that the result is clamped within the output range. 
+Clamping means that if the mapped value falls outside the output range, it will be "clamped" to the nearest boundary value of the output range.
+
+
+An example to illustrate how the function works:
+
+--------------------------------------------------------------------------------------------------------------------------------
+float InputValue = 0.75f;  // Input value within the input range
+
+float InputRangeMin = 0.0f;
+float InputRangeMax = 1.0f;
+
+float OutputRangeMin = 10.0f;
+float OutputRangeMax = 20.0f;
+
+float MappedValue = FMath::GetMappedRangeValueClamped(InputValue, InputRangeMin, InputRangeMax, OutputRangeMin, OutputRangeMax);
+--------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the InputValue is 0.75, which falls within the input range of 0.0 to 1.0. The desired output range is 10.0 to 20.0.
+
+The GetMappedRangeValueClamped() function will map the InputValue from the input range to the output range using linear interpolation.
+Since the InputValue of 0.75 falls three-quarters of the way between the input range's minimum and maximum,
+the mapped value will also be three-quarters of the way between the output range's minimum and maximum.
+
+The resulting MappedValue will be 17.5, which is the mapped value of 0.75 within the output range of 10.0 to 20.0.
+
+If the input value were outside the input range, the function would still map it to the output range but clamp it within the boundaries. 
+For example, if the InputValue were 1.5, which is outside the input range of 0.0 to 1.0, the function would still map it to the output range 
+but clamp it to the maximum value of 20.0, resulting in a MappedValue of 20.0.
+
+Overall, FMath::GetMappedRangeValueClamped() is a helpful utility method for mapping a value from one range to another while ensuring the result 
+is clamped within a specified range. It is commonly used in game development and computer graphics to remap values such as input from a controller or mouse 
+to appropriate ranges for game mechanics or visual effects.
