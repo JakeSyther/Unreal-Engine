@@ -1,0 +1,58 @@
+LineTraceSingleByChannel() is a function in the Unreal Engine API that performs a raycast or line trace in a game world to detect the first blocking object 
+or surface it encounters. 
+
+It is commonly used for various purposes, such as collision detection, object interaction, or targeting systems.
+
+Here's an example that demonstrates the usage of LineTraceSingleByChannel():
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+#include "Engine/World.h"
+#include "DrawDebugHelpers.h"
+
+// Function to perform a line trace and print the hit result
+void PerformLineTrace(UWorld* World)
+{
+    // Define the start and end locations of the ray
+    FVector StartLocation(0, 0, 0);
+    FVector EndLocation(100, 0, 0);
+
+    // Define the collision channel for the line trace
+    ECollisionChannel TraceChannel = ECC_Visibility;
+
+    // Set up parameters for the line trace
+    FCollisionQueryParams TraceParams(FName(TEXT("LineTraceSingle")), true, nullptr);
+    TraceParams.bTraceComplex = true;
+    TraceParams.bReturnPhysicalMaterial = false;
+
+    // Store the hit result of the line trace
+    FHitResult HitResult;
+
+    // Perform the line trace
+    bool bHit = World->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation, TraceChannel, TraceParams);
+
+    // If the line trace hits an object
+    if (bHit)
+    {
+        // Print the name of the hit actor
+        FString HitActorName = HitResult.GetActor() ? HitResult.GetActor()->GetName() : FString(TEXT("Unknown"));
+        UE_LOG(LogTemp, Warning, TEXT("Line trace hit %s"), *HitActorName);
+    }
+
+    // Draw a debug line to visualize the line trace
+    DrawDebugLine(World, StartLocation, EndLocation, FColor::Red, false, 2.0f, 0, 1.0f);
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the PerformLineTrace() function performs a line trace from the start location (0, 0, 0) to the end location (100, 0, 0) in the game world.
+It uses the ECC_Visibility collision channel for the line trace. 
+The line trace result is stored in the HitResult variable, and the function checks if an object was hit by evaluating the boolean return value bHit.
+If an object is hit, it prints the name of the hit actor using the Unreal Engine logging system (UE_LOG).
+
+To visualize the line trace, the example also uses DrawDebugLine() to draw a red line in the game world from the start to the end location.
+
+Please note that this is a simplified example, and there are additional parameters and options available for LineTraceSingleByChannel() 
+that can be customized based on your specific needs.
+
+
+
+
