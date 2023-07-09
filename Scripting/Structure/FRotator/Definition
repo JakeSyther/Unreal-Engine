@@ -16,15 +16,268 @@ FRotator AnotherRotator = FRotator(0, 0, 0); // Constructs an FRotator with Pitc
 
 FRotator provides several useful functions for working with rotations. 
 
-Some examples include:
+Functions;
 
-* FRotator::Add()               - Adds two FRotator values together.
-* FRotator::Normalize()         - Normalizes the FRotator to have values between -180 and 180 degrees.
-* FRotator::Clamp()             - Clamps the FRotator values to a given range.
-- FRotator::GetForwardVector()  - Returns a FVector that represents the forward direction of the rotation.
+* Add(float DeltaPitch, float DeltaYaw, float DeltaRoll):
 
-,
-Aexample of using FRotator to rotate an actor in Unreal Engine:
+Adds the specified delta values to each component of the FRotator (pitch, yaw, and roll).
+Example: FRotator NewRotation = Rotation.Add(10.f, 0.f, 0.f); // Adds 10 degrees to the pitch component.
+
+-----------------------------------------------------------------------------------------------------------------------
+* Clamp():
+
+Restricts the rotation values of the FRotator to fall within the range [0, 360].
+Ensures that the pitch, yaw, and roll angles are kept within valid rotation limits.
+Example: Rotation.Clamp();
+
+-----------------------------------------------------------------------------------------------------------------------
+* ClampAxis(float Angle):
+
+Clamps an angle to the range of [0, 360).
+This function takes an input angle and returns the clamped angle within the specified range.
+Example: float ClampedAngle = FRotator::ClampAxis(400.f); // Returns 40 degrees.
+
+-----------------------------------------------------------------------------------------------------------------------
+CompressAxisToByte(float Angle):
+
+Compresses a floating-point angle into a byte.
+Converts the angle value, represented in degrees, into a compressed byte representation.
+Example: uint8 CompressedAngle = FRotator::CompressAxisToByte(45.f); // Returns a compressed byte value.
+
+-----------------------------------------------------------------------------------------------------------------------
+CompressAxisToShort(float Angle):
+
+Compresses a floating-point angle into a short (16-bit integer).
+Converts the angle value, represented in degrees, into a compressed short representation.
+Example: uint16 CompressedAngle = FRotator::CompressAxisToShort(90.f); // Returns a compressed short value.
+
+-----------------------------------------------------------------------------------------------------------------------
+ContainsNaN():
+
+Checks if the FRotator contains any non-finite values (NaN or Inf).
+Returns true if any of the pitch, yaw, or roll values are not finite.
+Example: bool bHasNaN = Rotation.ContainsNaN();
+
+-----------------------------------------------------------------------------------------------------------------------
+DecompressAxisFromByte(uint8 Angle):
+
+Decompresses a byte value into a floating-point angle.
+Converts the compressed byte value back into a floating-point angle representation.
+Example: float DecompressedAngle = FRotator::DecompressAxisFromByte(127); // Returns the decompressed angle.
+
+-----------------------------------------------------------------------------------------------------------------------
+DecompressAxisFromShort(uint16 Angle):
+
+Decompresses a short (16-bit integer) value into a floating-point angle.
+Converts the compressed short value back into a floating-point angle representation.
+Example: float DecompressedAngle = FRotator::DecompressAxisFromShort(32767); // Returns the decompressed angle.
+
+-----------------------------------------------------------------------------------------------------------------------
+DiagnosticCheckNaN(const TCHAR* Message) / DiagnosticCheckNaN():
+
+Utility functions to check if the FRotator contains any non-finite values (NaN or Inf).
+If a non-finite value is detected, these functions trigger a diagnostic error or log a message for debugging purposes.
+
+-----------------------------------------------------------------------------------------------------------------------
+Equals(const FRotator& R, float Tolerance):
+
+Checks whether two FRotators are equal within the specified tolerance, treating them as orientations.
+Returns true if the difference between the rotations is within the specified tolerance.
+Example: bool bEqual = Rotation.Equals(OtherRotation, 0.01f); // Returns true if the rotations are equal within 0.01 degrees.
+
+-----------------------------------------------------------------------------------------------------------------------
+Euler():
+Converts the FRotator into floating-point Euler angles (in degrees).
+Returns a FVector representing the rotation angles of the FRotator.
+Example: FVector EulerAngles = Rotation.Euler(); // Returns a vector containing pitch, yaw, and roll angles.
+
+-----------------------------------------------------------------------------------------------------------------------
+GetComponentForAxis(EAxis::Type Axis):
+Retrieves the specific component (angle) of the FRotator for the specified axis.
+Takes an enum value representing the X, Y, or Z axis and returns the corresponding component value.
+Example: float PitchAngle = Rotation.GetComponentForAxis(EAxis::X); // Returns the pitch angle.
+
+-----------------------------------------------------------------------------------------------------------------------
+GetDenormalized():
+Creates a copy of the FRotator and denormalizes it, clamping each angle component to the range of 0 to 360.
+Ensures that each component of the FRotator is within the valid rotation range.
+Example: FRotator DenormalizedRotation = Rotation.GetDenormalized();
+
+-----------------------------------------------------------------------------------------------------------------------
+GetEquivalentRotator():
+Returns a new FRotator with the same rotation but different degree values for pitch, yaw, and roll.
+Useful for obtaining an equivalent rotation with different angle representations.
+Example: FRotator EquivalentRotation = Rotation.GetEquivalentRotator();
+
+-----------------------------------------------------------------------------------------------------------------------
+GetInverse():
+Returns the inverse of the FRotator.
+Creates a new FRotator with the opposite rotation values (inverse pitch, yaw, and roll angles).
+Example: FRotator InverseRotation = Rotation.GetInverse();
+
+-----------------------------------------------------------------------------------------------------------------------
+GetManhattanDistance(const FRotator& Rotator):
+Calculates the Manhattan distance in degrees between the current FRotator and the passed-in Rotator.
+Measures the absolute difference between each corresponding angle component (pitch, yaw, and roll).
+Example: float Distance = Rotation.GetManhattanDistance(OtherRotation); // Returns the Manhattan distance in degrees.
+
+-----------------------------------------------------------------------------------------------------------------------
+GetNormalized():
+Creates a copy of the FRotator and normalizes it.
+Removes all winding (multiple rotations) and creates the "shortest route" rotation.
+Example: FRotator NormalizedRotation = Rotation.GetNormalized();
+
+
+-----------------------------------------------------------------------------------------------------------------------
+GetWindingAndRemainder(FRotator& Winding, FRotator& Remainder):
+Decomposes the FRotator into a Winding part (multiples of 360 degrees) and a Remainder part.
+The Winding part represents the multiple rotations, while the Remainder part contains the remaining rotation within 360 degrees.
+Example: 
+FRotator WindingRotation, RemainderRotation;
+Rotation.GetWindingAndRemainder(WindingRotation, RemainderRotation);
+
+-----------------------------------------------------------------------------------------------------------------------
+GridSnap(const FRotator& RotGrid):
+Gets the rotation snapped to the specified degree segments.
+Snaps the pitch, yaw, and roll angles of the FRotator to the nearest multiple of the specified degree values.
+Example:
+FRotator SnappedRotation = Rotation.GridSnap(FRotator(15.f, 15.f, 15.f));
+
+-----------------------------------------------------------------------------------------------------------------------
+InitFromString(const FString& InSourceString):
+Initializes the FRotator based on a string representation.
+Converts a string into pitch, yaw, and roll angles to set the values of the FRotator.
+Example:
+FRotator Rotation;
+Rotation.InitFromString(TEXT("Pitch=10, Yaw=20, Roll=30"));
+
+-----------------------------------------------------------------------------------------------------------------------
+IsNearlyZero(float Tolerance):
+Checks whether the FRotator is nearly zero within the specified tolerance, treating it as an orientation.
+Returns true if the magnitude (absolute value) of the rotation is within the specified tolerance.
+Example:
+bool bIsZero = Rotation.IsNearlyZero(0.1f); // Returns true if the rotation is nearly zero within 0.1 degrees.
+
+-----------------------------------------------------------------------------------------------------------------------
+IsZero():
+Checks whether the FRotator has exactly zero rotation, treating it as an orientation.
+Returns true if the rotation is exactly zero (all components are equal to zero).
+Example:
+bool bIsZero = Rotation.IsZero(); // Returns true if the rotation is exactly zero.
+
+-----------------------------------------------------------------------------------------------------------------------
+MakeFromEuler(const FVector& Euler):
+Converts a vector of floating-point Euler angles (in degrees) into a FRotator.
+Sets the pitch, yaw, and roll angles of the FRotator based on the values in the Euler vector.
+Example:
+FRotator Rotation = FRotator::MakeFromEuler(FVector(10.f, 20.f, 30.f));
+
+-----------------------------------------------------------------------------------------------------------------------
+NetSerialize(FArchive& Ar, UPackageMap* Map, bool& bOutSuccess):
+Serializes the FRotator for network transmission or storage.
+Handles the serialization and deserialization of the FRotator to and from the specified archive.
+Example:
+FArchive Ar;
+bool bSuccess;
+Rotation.NetSerialize(Ar, nullptr, bSuccess);
+
+-----------------------------------------------------------------------------------------------------------------------
+Normalize():
+Normalizes the FRotator in-place.
+Removes all winding (multiple rotations) and creates the "shortest route" rotation.
+Example:
+Rotation.Normalize();
+
+-----------------------------------------------------------------------------------------------------------------------
+NormalizeAxis(float Angle):
+Clamps an angle to the range of (-180, 180].
+Normalizes the input angle to fall within the range -180 to 180 degrees.
+Example:
+float NormalizedAngle = FRotator::NormalizeAxis(270.f); // Returns -90 degrees.
+
+-----------------------------------------------------------------------------------------------------------------------
+Quaternion():
+Converts the FRotator into a quaternion representation.
+Returns an FQuat quaternion that represents the same rotation as the FRotator.
+Example:
+FQuat Quat = Rotation.Quaternion();
+
+-----------------------------------------------------------------------------------------------------------------------
+RotateVector(const FVector& V):
+Rotates a vector by the FRotator.
+Applies the rotation represented by the FRotator to the input vector and returns the rotated vector.
+Example:
+FVector RotatedVector = Rotation.RotateVector(FVector(1.f, 0.f, 0.f));
+
+-----------------------------------------------------------------------------------------------------------------------
+Serialize(FArchive& Ar):
+Serializes the FRotator for network transmission or storage.
+Handles the serialization and deserialization of the FRotator to and from the specified archive.
+Example:
+FArchive Ar;
+Rotation.Serialize(Ar);
+
+-----------------------------------------------------------------------------------------------------------------------
+SerializeCompressed(FArchive& Ar):
+Serializes the FRotator in a compressed format for network transmission or storage.
+Handles the serialization and deserialization of the FRotator to and from the specified archive using a compressed format.
+Example:
+FArchive Ar;
+Rotation.SerializeCompressed(Ar);
+
+-----------------------------------------------------------------------------------------------------------------------
+SerializeCompressedShort(FArchive& Ar):
+Serializes the FRotator in a compressed format using shorts for network transmission or storage.
+Handles the serialization and deserialization of the FRotator to and from the specified archive using a compressed format with shorts.
+Example:
+FArchive Ar;
+Rotation.SerializeCompressedShort(Ar);
+
+-----------------------------------------------------------------------------------------------------------------------
+SetClosestToMe(FRotator& MakeClosest):
+Modifies the passed-in FRotator to be the closest rotation to the current FRotator, based on their equivalent rotations.
+Adjusts the values of the MakeClosest FRotator to be the closest rotation to the current FRotator.
+Example:
+FRotator ClosestRotation;
+Rotation.SetClosestToMe(ClosestRotation);
+
+-----------------------------------------------------------------------------------------------------------------------
+SetComponentForAxis(EAxis::Type Axis, float Component):
+Sets a specified component (angle) of the FRotator for the specified axis.
+Takes an enum value representing the X, Y, or Z axis and sets the corresponding component value to the specified angle.
+Example:
+Rotation.SetComponentForAxis(EAxis::X, 45.f); // Sets the pitch component to 45 degrees.
+
+-----------------------------------------------------------------------------------------------------------------------
+ToCompactString():
+Gets a short textural representation of the FRotator for compact, readable logging.
+Returns a FString containing a short representation of the FRotator's values.
+Example:
+FString CompactString = Rotation.ToCompactString();
+
+-----------------------------------------------------------------------------------------------------------------------
+ToString():
+Gets a textual representation of the FRotator.
+Returns a FString containing a text representation of the FRotator's values.
+Example:
+FString String = Rotation.ToString();
+
+-----------------------------------------------------------------------------------------------------------------------
+UnrotateVector(const FVector& V):
+Returns the vector rotatedby the inverse of the FRotator.
+Applies the inverse rotation represented by the FRotator to the input vector and returns the unrotated vector.
+Example:
+FVector UnrotatedVector = Rotation.UnrotateVector(FVector(1.f, 0.f, 0.f));
+
+-----------------------------------------------------------------------------------------------------------------------
+Vector():
+Converts the FRotator into a unit vector facing in its direction.
+Returns a FVector representing the direction of the FRotator as a unit vector.
+Example:
+FVector DirectionVector = Rotation.Vector();
+
+
+Basic Example of using FRotator to rotate an actor in Unreal Engine:
 -----------------------------------------------------------------------------------
 void AMyActor::Tick(float DeltaTime)
 {
