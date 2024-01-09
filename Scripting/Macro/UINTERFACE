@@ -1,0 +1,67 @@
+In Unreal Engine's C++ programming, the UINTERFACE() macro is used to declare an interface, 
+which is a way to define a contract of functions that must be implemented by classes that inherit from that interface.
+Interfaces in Unreal Engine provide a form of multiple inheritance, allowing a class to implement functionality from multiple sources.
+
+Examples:
+
+// Header file (.h)
+// Declare the interface
+UINTERFACE(BlueprintType)
+class MYPROJECT_API UMyInterface : public UInterface
+{
+    GENERATED_BODY()
+};
+
+// Declare functions that must be implemented by classes that use this interface
+class MYPROJECT_API IMyInterface
+{
+    GENERATED_BODY()
+
+public:
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "MyInterface")
+    void MyFunction();
+
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "MyInterface")
+    int32 MyFunctionWithReturnValue();
+};
+
+In this example:
+
+UINTERFACE(BlueprintType) declares an interface named UMyInterface. 
+The BlueprintType specifier indicates that the interface can be used in Blueprints.
+
+IMyInterface is a pure virtual class (interface) that inherits from UMyInterface. 
+It declares two functions, MyFunction() and MyFunctionWithReturnValue(), 
+which must be implemented by any class that wants to use this interface.
+
+BlueprintCallable and BlueprintNativeEvent specifiers are used to make these functions accessible in Blueprints.
+BlueprintCallable allows the function to be called from Blueprints,
+and BlueprintNativeEvent is used in conjunction with a macro to provide a default native implementation that can be overridden in Blueprint.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+// Header file (.h)
+UCLASS()
+class MYPROJECT_API AMyActor : public AActor, public IMyInterface
+{
+    GENERATED_BODY()
+
+public:
+    // Implementation of MyFunction
+    virtual void MyFunction_Implementation() override;
+
+    // Implementation of MyFunctionWithReturnValue
+    virtual int32 MyFunctionWithReturnValue_Implementation() override;
+};
+
+
+
+In this example:
+
+AMyActor is a class that inherits from AActor and implements IMyInterface.
+
+The MyFunction_Implementation() and MyFunctionWithReturnValue_Implementation() 
+functions provide the actual implementation of the interface functions. 
+These functions are marked with the override keyword to explicitly indicate that they are implementing functions from the interface.
+
+Classes that implement the interface must provide implementations for all the functions declared in the interface.
+This allows for a consistent way to interact with objects that share common functionality, even if they have different base classes.
