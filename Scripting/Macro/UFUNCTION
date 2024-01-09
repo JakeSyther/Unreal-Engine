@@ -1,0 +1,82 @@
+In Unreal Engine's C++ programming, UFUNCTION() is a macro used to declare functions that can be exposed to the Unreal Engine reflection system,
+making them accessible to the engine and other systems. 
+This reflection system allows Unreal Engine to understand and manipulate C++ functions at runtime,
+providing features like Blueprint scripting, networking, and more.
+
+
+
+1. Basic Function Declaration:
+
+// Header file (.h)
+UCLASS()
+class MYPROJECT_API AMyActor : public AActor
+{
+    GENERATED_BODY()
+    
+public:
+    UFUNCTION()
+    void MyFunction();
+};
+
+In this example, MyFunction() is a simple function that can be called from Blueprints and other parts of Unreal Engine. 
+The UFUNCTION() macro is placed before the function declaration to mark it for reflection.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Function with Parameters:
+
+// Header file (.h)
+UCLASS()
+class MYPROJECT_API AMyActor : public AActor
+{
+    GENERATED_BODY()
+    
+public:
+    UFUNCTION()
+    void MyFunctionWithParams(int32 Param1, float Param2);
+};
+
+This example demonstrates a function with parameters. The parameters are automatically exposed to Blueprints,
+allowing you to set them in the editor or pass values from other Blueprints.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+3.BlueprintCallable Function:
+
+// Header file (.h)
+UCLASS()
+class MYPROJECT_API AMyActor : public AActor
+{
+    GENERATED_BODY()
+    
+public:
+    UFUNCTION(BlueprintCallable)
+    void MyBlueprintCallableFunction();
+};
+
+The BlueprintCallable specifier allows the function to be callable from Blueprints. 
+This is useful when you want to expose certain functionality to designers and artists working with Blueprints.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+4.Server and Client RPC Functions:
+
+// Header file (.h)
+UCLASS()
+class MYPROJECT_API AMyActor : public AActor
+{
+    GENERATED_BODY()
+    
+public:
+    UFUNCTION(Server, Reliable)
+    void ServerFunction();
+
+    UFUNCTION(Client, Reliable)
+    void ClientFunction();
+};
+
+Unreal Engine provides networking support, and UFUNCTION() can be used to declare server and client RPC (Remote Procedure Call) functions.
+These functions are marked with the Server and Client specifiers, indicating whether they are executed on the server or client side.
+
+These are most using a few examples of how UFUNCTION() can be used in Unreal Engine C++. 
+The macro provides a way to expose C++ functionality to various engine systems,
+making it a powerful tool for game development within the Unreal Engine framework.
