@@ -1,0 +1,89 @@
+In Unreal Engine, AActor is a fundamental class that represents any object that can be placed or spawned in the game world.
+All interactive elements, characters, props, lights, cameras, and more in a UE5 game are instances of AActor or its subclasses. 
+The AActor class is part of the engine's gameplay framework and provides a wide range of functionalities 
+that make it a cornerstone for building game objects.
+
+Here's a basic overview of the AActor class:
+
+Class Hierarchy: AActor is the base class for all actors in the engine. 
+It is derived from UObject and is the parent class for many other classes, such as APawn, ACharacter, AStaticMeshActor, and more.
+
+Key Features:
+
+Transform: AActor has a FTransform property that represents its location, rotation, and scale in the game world.
+Components: Actors can have multiple components attached to them, like USceneComponent, UStaticMeshComponent, UCameraComponent, etc.,
+which define their visual representation, collision, behavior, and other aspects.
+Lifecycle Events: Actors have functions for various lifecycle events, such as BeginPlay (called when the actor is spawned),
+Tick (called every frame), and EndPlay (called when the actor is destroyed).
+
+Here's a simple example of an AActor subclass in C++:
+
+// MyActor.h
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "MyActor.generated.h"
+
+UCLASS()
+class MYPROJECT_API AMyActor : public AActor
+{
+    GENERATED_BODY()
+
+public:
+
+    // Sets default values for this actor's properties
+    AMyActor();
+
+protected:
+
+    // Called when the game starts or when spawned
+    virtual void BeginPlay() override;
+
+    // Called every frame
+    virtual void Tick(float DeltaTime) override;
+
+private:
+
+    // Declare any private variables or functions here
+};
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+// MyActor.cpp
+
+#include "MyActor.h"
+
+// Sets default values
+AMyActor::AMyActor()
+{
+    // Set this actor to call Tick() every frame
+    PrimaryActorTick.bCanEverTick = true;
+}
+
+// Called when the game starts or when spawned
+void AMyActor::BeginPlay()
+{
+    Super::BeginPlay();
+
+    // Add initialization code here
+}
+
+// Called every frame
+void AMyActor::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+
+    // Add per-frame update code here
+}
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+In this example, AMyActor is a custom subclass of AActor. You can add any functionality specific to your actor in this class.
+The BeginPlay function is called when the actor is spawned, and the Tick function is called every frame.
+
+To use this actor in your game, you can place it in the level using the editor or spawn it dynamically in C++ code. For example:
+
+
+AMyActor* MyNewActor = GetWorld()->SpawnActor<AMyActor>(SpawnLocation, SpawnRotation);
+
+This line of code spawns an instance of AMyActor at the specified location and rotation in the game world.
