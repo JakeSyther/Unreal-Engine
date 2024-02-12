@@ -1,0 +1,46 @@
+FVector represents a three-dimensional vector with X, Y, and Z components, and it's widely used across Unreal Engine for various purposes such as representing positions, directions, 
+velocities, and scales in 3D space.
+
+Here's the definition of the FVector struct in Unreal Engine:
+struct FVector
+{
+    float X;
+    float Y;
+    float Z;
+};
+
+X, Y, Z: These components represent the vector's position or direction along the x, y, and z axes, respectively.
+Here are some common use cases and examples of how FVector can be used in Unreal Engine C++:
+
+Example 1: Position in 3D Space
+FVector Position(100.0f, 200.0f, 50.0f); // Represents a position at (100, 200, 50)
+
+Example 2: Direction in 3D Space
+FVector Direction(0.0f, 0.0f, 1.0f); // Represents a direction pointing along the positive z-axis
+
+Example 3: Velocity of an Object
+FVector Velocity(5.0f, -2.0f, 0.0f); // Represents a velocity with components along the x and y axes
+
+Example 4: Scale of an Object
+FVector Scale(2.0f, 2.0f, 2.0f); // Represents a scaling factor to apply to an object uniformly along all axes
+
+Example 5: Arithmetic Operations on FVector
+FVector A(1.0f, 2.0f, 3.0f);
+FVector B(4.0f, 5.0f, 6.0f);
+
+FVector Result = A + B; // Component-wise addition
+// Result.X = 1.0f + 4.0f = 5.0f
+// Result.Y = 2.0f + 5.0f = 7.0f
+// Result.Z = 3.0f + 6.0f = 9.0f
+
+FVector Scaled = A * 2.0f; // Scalar multiplication
+// Scaled.X = 1.0f * 2.0f = 2.0f
+// Scaled.Y = 2.0f * 2.0f = 4.0f
+// Scaled.Z = 3.0f * 2.0f = 6.0f
+These examples illustrate how FVector is utilized in Unreal Engine C++ to represent various types of three-dimensional data and perform basic arithmetic operations.
+It's a fundamental building block for many aspects of game development, including physics, rendering, and animation.
+
+
+
+
+
