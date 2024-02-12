@@ -1,4 +1,4 @@
-FVector4 is a struct that represents a four-component vector, commonly used for various purposes such as representing positions, directions, colors, and more in 3D space.
+FVector4D is a struct that represents a four-component vector, commonly used for various purposes such as representing positions, directions, colors, and more in 3D space.
 Each component of the vector can be of floating-point type (float).
 
 Here's a breakdown of the FVector4 struct and its components:
