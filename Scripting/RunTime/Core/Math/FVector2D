@@ -1,0 +1,49 @@
+FVector2D is a struct used to represent a two-dimensional vector. It's commonly employed for tasks that involve 2D space, such as UI layout, screen coordinates, texture mapping, and more.
+The struct comprises two floating-point components: X and Y.
+
+Here's the declaration of the FVector2D struct:
+struct FVector2D
+{
+    float X;
+    float Y;
+};
+
+X, Y: These components represent the vector's position or direction along the horizontal (X) and vertical (Y) axes, respectively.
+Here are some common use cases and examples of how FVector2D can be used in Unreal Engine C++:
+
+Example 1: Screen Position
+FVector2D ScreenPosition(100.0f, 50.0f); // Represents a position at (100, 50) on the screen
+
+Example 2: Size of a UI Element
+FVector2D ElementSize(200.0f, 100.0f); // Represents the size of a UI element with width 200 and height 100
+
+Example 3: Texture UV Coordinates
+FVector2D TextureUV(0.5f, 0.25f); // Represents UV coordinates for mapping a texture
+
+Example 4: Arithmetic Operations on FVector2D
+FVector2D A(1.0f, 2.0f);
+FVector2D B(3.0f, 4.0f);
+
+FVector2D Result = A + B; // Component-wise addition
+// Result.X = 1.0f + 3.0f = 4.0f
+// Result.Y = 2.0f + 4.0f = 6.0f
+
+FVector2D Scaled = A * 2.0f; // Scalar multiplication
+// Scaled.X = 1.0f * 2.0f = 2.0f
+// Scaled.Y = 2.0f * 2.0f = 4.0f
+
+Example 5: Normalized Vector
+FVector2D Direction(3.0f, 4.0f);
+Direction.Normalize(); // Normalize the vector to have unit length
+
+// Direction.X = 3.0f / 5.0f = 0.6f
+// Direction.Y = 4.0f / 5.0f = 0.8f
+These examples illustrate how FVector2D can be utilized in Unreal Engine C++ to manage various 2D data and perform operations such as addition, multiplication, and normalization. 
+It's a fundamental component for implementing 2D functionality within the engine, including user interfaces, sprite animations, and 2D game logic.
+
+
+
+
+
+
+
