@@ -1,0 +1,51 @@
+FVector4 is a struct that represents a four-component vector, commonly used for various purposes such as representing positions, directions, colors, and more in 3D space.
+Each component of the vector can be of floating-point type (float).
+
+Here's a breakdown of the FVector4 struct and its components:
+struct FVector4
+{
+    float X;
+    float Y;
+    float Z;
+    float W;
+};
+
+X, Y, Z: These are the three spatial components of the vector, representing its position or direction in 3D space.
+W: This is typically used for various purposes depending on the context. In some cases, it may represent scaling factors, or it might be used for homogeneous coordinates.
+Here's a brief explanation of how FVector4 can be used:
+
+Example 1: Position in 3D space
+FVector4 Position(10.0f, 20.0f, 30.0f, 1.0f); // Homogeneous coordinate, W = 1 indicates a position
+
+Example 2: Direction in 3D space
+FVector4 Direction(0.0f, 0.0f, 1.0f, 0.0f); // W = 0 indicates a direction
+
+Example 3: Color representation
+FVector4 Color(1.0f, 0.0f, 0.0f, 1.0f); // RGBA format, where R = 1.0f, G = 0.0f, B = 0.0f, A = 1.0f
+
+Example 4: Homogeneous coordinates
+FVector4 HomogeneousPoint(2.0f, 4.0f, 6.0f, 2.0f); // Homogeneous coordinates, used in transformations
+
+Example 5: Operations on FVector4
+FVector4 A(1.0f, 2.0f, 3.0f, 1.0f);
+FVector4 B(4.0f, 5.0f, 6.0f, 1.0f);
+
+FVector4 Result = A + B; // Component-wise addition
+// Result.X = 1.0f + 4.0f = 5.0f
+// Result.Y = 2.0f + 5.0f = 7.0f
+// Result.Z = 3.0f + 6.0f = 9.0f
+// Result.W = 1.0f (W component is not affected by addition)
+
+FVector4 Scaled = A * 2.0f; // Scalar multiplication
+// Scaled.X = 1.0f * 2.0f = 2.0f
+// Scaled.Y = 2.0f * 2.0f = 4.0f
+// Scaled.Z = 3.0f * 2.0f = 6.0f
+// Scaled.W = 1.0f * 2.0f = 2.0f
+
+These examples showcase how FVector4 can be used in different contexts within Unreal Engine C++. 
+It's a versatile struct that allows developers to represent various types of data in 3D space efficiently.
+
+
+
+
+
